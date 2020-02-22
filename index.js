@@ -10,7 +10,9 @@ const BrowserWindow = electron.BrowserWindow;
 let win;
 
 function createWindow() {
-  win = new BrowserWindow();
+  win = new BrowserWindow({
+    show: false
+  });
   win.loadURL(
     url.format({
       pathname: path.join(__dirname, "index.html"),
@@ -18,6 +20,11 @@ function createWindow() {
       slashes: true
     })
   );
+
+  win.on("ready-to-show", () => {
+    win.removeMenu();
+    win.show();
+  });
 
   win.on("closed", () => {
     win = null;

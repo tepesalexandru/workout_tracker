@@ -18,5 +18,9 @@
   "homepage": "https://github.com/LupusDiamond/workout_tracker#readme",
   "devDependencies": {
     "electron": "^8.0.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.5.3"
   }
 }

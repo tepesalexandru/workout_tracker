@@ -1,6 +1,7 @@
 /// Core Electron file
 
 const electron = require("electron");
+const express = require("express");
 const path = require("path");
 const url = require("url");
 
@@ -8,6 +9,9 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
 let win;
+
+const expr = express();
+const port = process.env.PORT || 3000;
 
 function createWindow() {
   win = new BrowserWindow({
@@ -44,3 +48,9 @@ app.on("activate", () => {
     createWindow();
   }
 });
+
+expr.listen(port, () => {
+  console.log("express server started");
+});
+
+require("./mongo");

@@ -2,15 +2,16 @@ const mongo = require("mongodb").MongoClient;
 
 const uri =
   "mongodb+srv://adminUser:!adminuser@workouttracker-kyktn.mongodb.net/test?retryWrites=true&w=majority";
-const connectDB = async () => {
+
+async function connectoToMongoDB() {
   return await mongo.connect(uri, {
     useUnifiedTopology: true,
     useNewUrlParser: true
   });
-};
+}
 
-async function startUp() {
-  const db = await connectDB();
+async function addItemToDatabase() {
+  const db = await connectoToMongoDB();
   const collection = await db.db("Test").collection("Test2");
   await collection.insertOne({
     name: "Eclipse",
@@ -18,4 +19,4 @@ async function startUp() {
   });
 }
 
-startUp();
+addItemToDatabase();

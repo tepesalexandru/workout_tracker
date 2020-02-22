@@ -1,56 +1,15 @@
 /// Core Electron file
 
-const electron = require("electron");
-const express = require("express");
-const path = require("path");
-const url = require("url");
+// Import Packages
+const { electron, path, url } = require("./utils/electron/packages");
 
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+// External Scripts Required
+let { mainWindow, app, BrowserWindow } = require("./utils/electron/variables");
 
-let win;
+let { createWindow } = require("./utils/electron/window/functions");
 
-const expr = express();
-const port = process.env.PORT || 3000;
-
-function createWindow() {
-  win = new BrowserWindow({
-    show: false
-  });
-  win.loadURL(
-    url.format({
-      pathname: path.join(__dirname, "index.html"),
-      protocol: "file",
-      slashes: true
-    })
-  );
-
-  win.on("ready-to-show", () => {
-    win.removeMenu();
-    win.show();
-  });
-
-  win.on("closed", () => {
-    win = null;
-  });
-}
-
+/// Start the app
 app.on("ready", createWindow);
 
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
-});
-
-app.on("activate", () => {
-  if (win === null) {
-    createWindow();
-  }
-});
-
-expr.listen(port, () => {
-  console.log("express server started");
-});
-
-require("./mongo");
+require("./utils/electron/window/linux");
+require("./utils/database/mongo");

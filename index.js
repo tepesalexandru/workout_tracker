@@ -11,5 +11,8 @@ let { createWindow } = require("./utils/electron/window/functions");
 /// Start the app
 app.on("ready", createWindow);
 
+// Linux requirements for electron
 require("./utils/electron/window/linux");
+
+// Boot database connection
 require("./utils/database/mongo");

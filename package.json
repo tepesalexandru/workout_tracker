@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "mongodb": "^3.5.3"
+    "mongodb": "^3.5.3",
+    "mongoose": "^5.9.2"
   }
 }

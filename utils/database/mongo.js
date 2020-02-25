@@ -1,9 +1,15 @@
+/// Core file for the MongoDB Database
 const mongo = require("mongodb").MongoClient;
 
-const uri =
-  "mongodb+srv://adminUser:!adminuser@workouttracker-kyktn.mongodb.net/test?retryWrites=true&w=majority";
+const uri = require("../config/keys").mongoURI;
+const { mongoose } = require("../electron/packages");
 
-async function connectoToMongoDB() {
+mongoose
+  .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Connected to the database."))
+  .catch(err => console.log(err));
+
+/*async function connectoToMongoDB() {
   return await mongo.connect(uri, {
     useUnifiedTopology: true,
     useNewUrlParser: true
@@ -19,4 +25,4 @@ async function addItemToDatabase() {
   });
 }
 
-addItemToDatabase();
+addItemToDatabase();*/

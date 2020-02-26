@@ -6,7 +6,7 @@
     --c-color: #FFFFFF;
     --t-color: #FFFFFF;
     --st-color: #BEE3F8;
-    --b-color: #F1F9FF;
+    --b-color: #cbe5ff;
 }
 
 body {
@@ -24,6 +24,10 @@ body {
     background-image: url(/public/images/woman.svg);
     background-position: center center;
     background-size: cover;
+}
+
+#box {
+    height: 60%;
 }
 
 .card {
@@ -45,4 +49,14 @@ body {
 
 .st-color {
     color: var(--st-color) !important;
+}
+
+select {
+    transition: all 200ms;
+    background-color: var(--b-color);
+}
+
+select option {
+    background: var(--b-color) !important;
+    color: var(--p-color) !important;
 }

@@ -33,7 +33,7 @@
 
         <nav>
           <ul
-            class="flex flex-col justify-between text-2xl font-semibold st-color"
+            class="flex flex-col justify-between text-2xl font-semibold -mt-16 st-color"
           >
             <a href="/index.html" class="flex">
               <svg
@@ -117,10 +117,7 @@
 
         <!-- Calendar -->
 
-        <div
-          id="calendar"
-          class="card w-full rounded-lg mt-8 py-6 px-8 shadow-md"
-        >
+        <div id="calendar" class="card w-full rounded-lg mt-8 py-6 px-8 shadow-md">
           <div
             id="days"
             class="flex justify-around items-center text-2xl font-bold p-color"
@@ -188,6 +185,22 @@
                 ></div>
               </div>
             </div>
+
+            <!-- select -->
+            
+            <div class="flex items-center mt-8 text-xl">
+                <select name="timeofday" class="pl-4 pr-12 py-4 font-semibold focus:outline-none rounded-md appearance-none p-color" id="timeofday">
+                    <option value="morning">Morning</option>
+                    <option value="afternoon">Aternoon</option>
+                    <option value="evening">Evening</option>
+                    <option value="snacks">Snacks</option>
+                </select>
+
+                <svg id="select" class="p-color pointer-events-none -ml-10" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
           </div>
 
           <!-- Workout Box -->
@@ -209,5 +222,5 @@
         </div>
       </div>
     </main>
-  </body>
+    </body>
 </html>

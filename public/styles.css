@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+:root {
+    --p-color: #3F75FF;
+    --s-color: #3FA3FF;
+    --c-color: #FFFFFF;
+    --t-color: #FFFFFF;
+    --st-color: #BEE3F8;
+    --b-color: #F1F9FF;
+}
+
+body {
+    letter-spacing: 1px;
+    line-height: 1;
+    font-family: 'Ubuntu', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background: var(--b-color) !important;
+}
+
+#side-bar {
+    background: linear-gradient(180deg, var(--p-color), var(--s-color)) !important;
+}
+
+#avatar {
+    background-image: url(/public/images/woman.svg);
+    background-position: center center;
+    background-size: cover;
+}
+
+.card {
+    background: var(--c-color);
+}
+
+.card .active {
+    background: var(--p-color);
+    color: var(--t-color);
+}
+
+.p-color {
+    color: var(--p-color);
+}
+
+.t-color {
+    color: var(--t-color) !important;
+}
+
+.st-color {
+    color: var(--st-color) !important;
+}

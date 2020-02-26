@@ -12,7 +12,7 @@
       href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <title>Home | Workout Tracker</title>
+    <title>Goals | Workout Tracker</title>
   </head>
   <body>
     <main class="flex w-full h-screen appearance-none">
@@ -35,7 +35,7 @@
           <ul
             class="flex flex-col justify-between text-2xl font-semibold -mt-16 st-color"
           >
-            <a href="/index.html" class="flex t-color">
+            <a href="/index.html" class="flex">
               <svg
                 width="24"
                 height="24"
@@ -54,7 +54,7 @@
               <span class="ml-2">Home</span>
             </a>
 
-            <a href="/public/pages/goals.html" class="my-8 flex">
+            <a href="/public/pages/goals.html" class="my-8 flex t-color">
               <svg
                 width="24"
                 height="24"
@@ -106,9 +106,9 @@
 
       <!-- main -->
 
-      <div class="p-8 w-full">
+      <div class="p-8 w-full h-screen">
         <header class="flex justify-between items-baseline w-full">
-          <h1 class="text-5xl p-color font-bold">Good Morning!</h1>
+          <h1 class="text-5xl p-color font-bold">Set your Goals</h1>
           <div class="flex items-baseline p-color text-xl font-bold">
             Water Reminder
             <div class="ml-2 h-4 w-4 border-2 rounded border-blue-500"></div>
@@ -117,8 +117,110 @@
 
         <!-- Calendar -->
 
-        <div id="calendar" class="card"></div>
+        <div id="calendar" class="card w-full rounded-lg mt-8 py-6 px-8 shadow-md">
+          <div
+            id="days"
+            class="flex justify-around items-center text-2xl font-bold p-color"
+          >
+            <div
+              id="sunday"
+              class="flex justify-center items-center w-16 h-16 rounded-full"
+            >
+              <span>S</span>
+            </div>
+            <div
+              id="monday"
+              class="flex justify-center items-center w-16 h-16 rounded-full"
+            >
+              <span>M</span>
+            </div>
+            <div
+              id="tuesday"
+              class="flex justify-center items-center w-16 h-16 rounded-full"
+            >
+              <span>T</span>
+            </div>
+            <div
+              id="wednesday"
+              class="flex justify-center items-center w-16 h-16 rounded-full active"
+            >
+              <span>W</span>
+            </div>
+            <div
+              id="thursday"
+              class="flex justify-center items-center w-16 h-16 rounded-full"
+            >
+              <span>T</span>
+            </div>
+            <div
+              id="friday"
+              class="flex justify-center items-center w-16 h-16 rounded-full"
+            >
+              <span>F</span>
+            </div>
+            <div
+              id="saturday"
+              class="flex justify-center items-center w-16 h-16 rounded-full"
+            >
+              <span>S</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Boxes -->
+
+        <div class="flex mt-8">
+          <!-- Diet Box -->
+
+          <div
+            id="diet"
+            class="card rounded-lg shadow-md p-8 w-full h-full mr-4"
+          >
+            <div class="flex justify-between items-baseline">
+              <h1 class="text-4xl p-color font-bold">Diet</h1>
+              <div class="flex items-baseline p-color text-xl font-bold">
+                Everyday
+                <div
+                  class="ml-2 h-4 w-4 border-2 rounded border-blue-500"
+                ></div>
+              </div>
+            </div>
+
+            <!-- select -->
+            
+            <div class="flex items-center mt-8 text-xl">
+                <select name="timeofday" class="pl-4 pr-12 py-4 font-semibold focus:outline-none rounded-md appearance-none p-color" id="timeofday">
+                    <option value="morning">Morning</option>
+                    <option value="afternoon">Aternoon</option>
+                    <option value="evening">Evening</option>
+                    <option value="snacks">Snacks</option>
+                </select>
+
+                <svg id="select" class="p-color pointer-events-none -ml-10" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+          </div>
+
+          <!-- Workout Box -->
+
+          <div
+            id="workout"
+            class="card rounded-lg shadow-md p-8 w-full h-full ml-4"
+          >
+            <div class="flex justify-between items-baseline">
+              <h1 class="text-4xl p-color font-bold">Workout</h1>
+              <div class="flex items-baseline p-color text-xl font-bold">
+                Everyday
+                <div
+                  class="ml-2 h-4 w-4 border-2 rounded border-blue-500"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
-  </body>
+    </body>
 </html>

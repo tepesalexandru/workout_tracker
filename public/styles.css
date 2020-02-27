@@ -21,7 +21,7 @@ body {
 }
 
 #avatar {
-    background-image: url(/public/images/woman.svg);
+    background-image: url(./images/woman.svg);
     background-position: center center;
     background-size: cover;
 }

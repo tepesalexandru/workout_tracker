@@ -15,12 +15,12 @@
     <title>Goals | Workout Tracker</title>
   </head>
   <body>
-    <main class="flex w-full h-screen appearance-none">
+    <main class="flex w-full h-screen">
       <!-- Side Bar -->
 
       <div
         id="side-bar"
-        class="flex flex-col justify-between items-center h-full p-8"
+        class="hidden md:flex flex-col justify-between items-center h-full p-8"
       >
         <div class="flex flex-col items-center">
           <div class="p-4 h-48 w-48 bg-white flex rounded-full shadow-md">
@@ -106,7 +106,7 @@
 
       <!-- main -->
 
-      <div class="p-8 w-full h-screen">
+      <div class="flex flex-col p-8 w-full h-screen overflow-y-scroll">
         <header class="flex justify-between items-baseline w-full">
           <h1 class="text-5xl p-color font-bold">Set your Goals</h1>
           <div class="flex items-baseline p-color text-xl font-bold">
@@ -117,50 +117,53 @@
 
         <!-- Calendar -->
 
-        <div id="calendar" class="card w-full rounded-lg mt-8 py-6 px-8 shadow-md">
+        <div
+          id="calendar"
+          class="card w-full rounded-lg mt-8 py-6 px-4 lg:px-8 shadow-md"
+        >
           <div
             id="days"
-            class="flex justify-around items-center text-2xl font-bold p-color"
+            class="flex justify-around items-center text-xl lg:text-2xl font-bold p-color"
           >
             <div
               id="sunday"
-              class="flex justify-center items-center w-16 h-16 rounded-full"
+              class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full"
             >
               <span>S</span>
             </div>
             <div
               id="monday"
-              class="flex justify-center items-center w-16 h-16 rounded-full"
+              class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full"
             >
               <span>M</span>
             </div>
             <div
               id="tuesday"
-              class="flex justify-center items-center w-16 h-16 rounded-full"
+              class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full"
             >
               <span>T</span>
             </div>
             <div
               id="wednesday"
-              class="flex justify-center items-center w-16 h-16 rounded-full active"
+              class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full pill"
             >
               <span>W</span>
             </div>
             <div
               id="thursday"
-              class="flex justify-center items-center w-16 h-16 rounded-full"
+              class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full"
             >
               <span>T</span>
             </div>
             <div
               id="friday"
-              class="flex justify-center items-center w-16 h-16 rounded-full"
+              class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full"
             >
               <span>F</span>
             </div>
             <div
               id="saturday"
-              class="flex justify-center items-center w-16 h-16 rounded-full"
+              class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full"
             >
               <span>S</span>
             </div>
@@ -169,15 +172,15 @@
 
         <!-- Boxes -->
 
-        <div class="flex mt-8">
+        <div class="flex flex-col lg:flex-row flex-grow mt-8">
           <!-- Diet Box -->
 
           <div
             id="diet"
-            class="card rounded-lg shadow-md p-8 w-full h-full mr-4"
+            class="card rounded-lg shadow-md p-8 w-full h-full lg:mr-4"
           >
             <div class="flex justify-between items-baseline">
-              <h1 class="text-4xl p-color font-bold">Diet</h1>
+              <h1 class="text-4xl p-color font-bold">Food Items</h1>
               <div class="flex items-baseline p-color text-xl font-bold">
                 Everyday
                 <div
@@ -187,30 +190,140 @@
             </div>
 
             <!-- select -->
-            
-            <div class="flex items-center mt-8 text-xl">
-                <select name="timeofday" class="pl-4 pr-12 py-4 font-semibold focus:outline-none rounded-md appearance-none p-color" id="timeofday">
-                    <option value="morning">Morning</option>
-                    <option value="afternoon">Aternoon</option>
-                    <option value="evening">Evening</option>
-                    <option value="snacks">Snacks</option>
-                </select>
+            <div class="flex items-center text-xl mt-8">
+              <select
+                name="timeofday"
+                class="pl-4 pr-12 py-4 font-semibold focus:outline-none rounded-md appearance-none p-color"
+                id="timeofday"
+              >
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="snacks">Snacks</option>
+                <option value="dinner">Dinner</option>
+              </select>
 
-                <svg id="select" class="p-color pointer-events-none -ml-10" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+              <svg
+                id="select"
+                class="p-color pointer-events-none -ml-10"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 9L12 16L5 9"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </div>
 
+            <!-- Food List -->
+
+            <ul id="diet-list" class="p-color text-2xl font-semibold mt-8 pl-6">
+              <li>
+                <div class="flex w-full pb-2">
+                  <input
+                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
+                    placeholder="Add food item"
+                    type="text"
+                    maxlength="25"
+                  />
+                  <input
+                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
+                    placeholder="KCAL"
+                    type="number"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </li>
+
+              <li>
+                <div class="flex w-full py-2">
+                  <input
+                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
+                    placeholder="Add food item"
+                    type="text"
+                    maxlength="25"
+                  />
+                  <input
+                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
+                    placeholder="KCAL"
+                    type="number"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </li>
+
+              <li>
+                <div class="flex w-full py-2">
+                  <input
+                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
+                    placeholder="Add food item"
+                    type="text"
+                    maxlength="25"
+                  />
+                  <input
+                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
+                    placeholder="KCAL"
+                    type="number"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </li>
+
+              <li>
+                <div class="flex w-full py-2">
+                  <input
+                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
+                    placeholder="Add food item"
+                    type="text"
+                    maxlength="25"
+                  />
+                  <input
+                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
+                    placeholder="KCAL"
+                    type="number"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </li>
+
+              <li>
+                <div class="flex w-full py-2">
+                  <input
+                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
+                    placeholder="Add food item"
+                    type="text"
+                    maxlength="25"
+                  />
+                  <input
+                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
+                    placeholder="KCAL"
+                    type="number"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </li>
+            </ul>
           </div>
 
           <!-- Workout Box -->
 
           <div
             id="workout"
-            class="card rounded-lg shadow-md p-8 w-full h-full ml-4"
+            class="card rounded-lg shadow-md p-8 w-full h-full mt-8 lg:mt-0 lg:ml-4"
           >
             <div class="flex justify-between items-baseline">
-              <h1 class="text-4xl p-color font-bold">Workout</h1>
+              <h1 class="text-4xl p-color font-bold">Exercises</h1>
               <div class="flex items-baseline p-color text-xl font-bold">
                 Everyday
                 <div
@@ -218,9 +331,138 @@
                 ></div>
               </div>
             </div>
+
+            <!-- select -->
+            <div class="flex items-center text-xl mt-8">
+              <select
+                name="timeofday"
+                class="pl-4 pr-12 py-4 font-semibold focus:outline-none rounded-md appearance-none p-color"
+                id="timeofday"
+              >
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="snacks">Snacks</option>
+                <option value="dinner">Dinner</option>
+              </select>
+
+              <svg
+                id="select"
+                class="p-color pointer-events-none -ml-10"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 9L12 16L5 9"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+
+            <!-- Exercise List -->
+
+            <ul
+              id="exercise-list"
+              class="p-color text-2xl font-semibold mt-8 pl-6"
+            >
+              <li>
+                <div class="flex w-full pb-2">
+                  <input
+                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
+                    placeholder="Exercise"
+                    type="text"
+                    maxlength="25"
+                  />
+                  <input
+                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
+                    placeholder="KCAL"
+                    type="number"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </li>
+
+              <li>
+                <div class="flex w-full py-2">
+                  <input
+                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
+                    placeholder="Exercise"
+                    type="text"
+                    maxlength="25"
+                  />
+                  <input
+                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
+                    placeholder="KCAL"
+                    type="number"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </li>
+
+              <li>
+                <div class="flex w-full py-2">
+                  <input
+                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
+                    placeholder="Exercise"
+                    type="text"
+                    maxlength="25"
+                  />
+                  <input
+                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
+                    placeholder="KCAL"
+                    type="number"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </li>
+
+              <li>
+                <div class="flex w-full py-2">
+                  <input
+                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
+                    placeholder="Exercise"
+                    type="text"
+                    maxlength="25"
+                  />
+                  <input
+                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
+                    placeholder="KCAL"
+                    type="number"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </li>
+
+              <li>
+                <div class="flex w-full py-2">
+                  <input
+                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
+                    placeholder="Exercise"
+                    type="text"
+                    maxlength="25"
+                  />
+                  <input
+                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
+                    placeholder="KCAL"
+                    type="number"
+                    min="0"
+                    max="9999"
+                  />
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </main>
-    </body>
+  </body>
 </html>

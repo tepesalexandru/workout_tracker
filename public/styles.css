@@ -16,6 +16,33 @@ body {
     background: var(--b-color) !important;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--b-color) !important;
+    opacity: 1 !important;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--b-color) !important;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--b-color) !important;
+  }
+
+  
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
 #side-bar {
     background: linear-gradient(180deg, var(--p-color), var(--s-color)) !important;
 }
@@ -34,12 +61,25 @@ body {
     background: var(--c-color);
 }
 
-.card .active {
+.cborder {
+    border: 2px solid var(--b-color);
+}
+
+.p-color {
+    color: var(--p-color);
+}
+
+.s-color {
+    color: var(--b-color);
+}
+
+.pill {
     background: var(--p-color);
     color: var(--t-color);
 }
 
-.p-color {
+.s-pill {
+    background: var(--b-color);
     color: var(--p-color);
 }
 
@@ -59,4 +99,8 @@ select {
 select option {
     background: var(--b-color) !important;
     color: var(--p-color) !important;
+}
+
+#diet-list , #exercise-list {
+    list-style-type: disc !important;
 }

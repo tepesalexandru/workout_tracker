@@ -7,7 +7,7 @@
       href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./public/styles.css" />
+    <link rel="stylesheet" href="/public/styles.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
       rel="stylesheet"
@@ -15,12 +15,12 @@
     <title>Home | Workout Tracker</title>
   </head>
   <body>
-    <main class="flex w-full h-screen appearance-none">
+    <main class="flex w-full h-screen">
       <!-- Side Bar -->
 
       <div
         id="side-bar"
-        class="flex flex-col justify-between items-center h-full p-8"
+        class="hidden sm:flex flex-col justify-between items-center h-full p-8"
       >
         <div class="flex flex-col items-center">
           <div class="p-4 h-48 w-48 bg-white flex rounded-full shadow-md">
@@ -33,9 +33,9 @@
 
         <nav>
           <ul
-            class="flex flex-col justify-between text-2xl font-semibold -mt-16 st-color"
+            class="flex flex-col justify-between text-2xl font-semibold -mt-16 b-color"
           >
-            <a href="/" class="flex t-color">
+            <a href="homepage" class="flex text-white">
               <svg
                 width="24"
                 height="24"
@@ -101,24 +101,118 @@
           </ul>
         </nav>
 
-        <a href="#" class="st-color">Sign Out</a>
+        <a href="#" class="b-color">Sign Out</a>
       </div>
 
       <!-- main -->
 
-      <div class="p-8 w-full">
+      <div class="flex flex-col p-8 w-full h-screen overflow-y-scroll">
         <header class="flex justify-between items-baseline w-full">
-          <h1 class="text-5xl p-color font-bold">Good Morning!</h1>
-          <div class="flex items-baseline p-color text-xl font-bold">
-            Water Reminder
-            <div class="ml-2 h-4 w-4 border-2 rounded border-blue-500"></div>
+          <h1 id="contextual-messages" class="text-5xl p-color font-bold">
+            Good Evening
+          </h1>
+          <div class="text-right p-color text-xl font-bold">
+            Thursday, Feb.28
           </div>
         </header>
 
         <!-- Calendar -->
 
-        <div id="calendar" class="card"></div>
+        <div
+          id="Quote"
+          class="card flex w-full rounded-lg mt-8 py-6 px-4 lg:px-8 shadow-md"
+        >
+
+          <span class="s-color"><svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.69729 2.292C3.10029 0.771 5.22329 0 8.00629 0H9.00629V2.819L8.20229 2.98C6.83229 3.254 5.87929 3.793 5.36929 4.584C5.05629 5.071 4.95329 5.591 4.93129 6H7.00629H8.00629C8.55929 6 9.00629 6.447 9.00629 7V14C9.00629 15.103 8.10929 16 7.00629 16H1.00629C0.453288 16 0.00628783 15.553 0.00628783 15V10L0.00928785 7.081C0.000287852 6.97 -0.189712 4.34 1.69729 2.292ZM18.0063 16H12.0063C11.4533 16 11.0063 15.553 11.0063 15V10L11.0093 7.081C11.0003 6.97 10.8103 4.34 12.6973 2.292C14.1003 0.771 16.2233 0 19.0063 0H20.0063V2.819L19.2023 2.98C17.8323 3.254 16.8793 3.793 16.3693 4.584C16.0563 5.071 15.9533 5.591 15.9313 6H18.0063H19.0063C19.5593 6 20.0063 6.447 20.0063 7V14C20.0063 15.103 19.1093 16 18.0063 16Z" fill="currentColor"/>
+            </svg>
+            </span>
+          <p id="quote" class="-ml-2 leading-8 p-color text-lg font-bold">
+            
+          </p>
+        </div>
+
+        <!-- Boxes -->
+
+        <div class="flex flex-col xl:flex-row flex-grow mt-8">
+          <!-- Diet Box -->
+
+          <div
+            id="diet"
+            class="card rounded-lg shadow-md p-8 w-full h-full lg:mr-4"
+          >
+            <div>
+              <h1 class="text-4xl p-color font-bold">Food Items</h1>
+            </div>
+
+            <!-- Food List -->
+
+            <ul id="diet-items" class="p-color text-2xl font-semibold mt-8">
+              <li class="p-color text-2xl font-semibold mb-8">
+                <div
+                  class="relative flex items-center inline-block h-6 w-6 rounded cborder"
+                >
+                  <input
+                    type="checkbox"
+                    name=""
+                    id=""
+                    class="opacity-0 absolute w-full h-full"
+                  />
+                  <svg
+                    class="tick absolute pointer-events-none"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5 13L9 17L19 7"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+
+                  <p
+                    class="pointer-events-none inline-block list-item text-3xl font-bold pl-10"
+                  >
+                    Pasta
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Workout Box -->
+
+          <div
+            id="workout"
+            class="card rounded-lg shadow-md p-8 w-full h-full mt-8 xl:mt-0 xl:ml-4"
+          >
+            <div>
+              <h1 class="text-4xl p-color font-bold">Exercises</h1>
+            </div>
+
+            <!-- Exercise List -->
+
+            <ul
+              id="exercise-items"
+              class="p-color text-2xl font-semibold mt-8 pl-6"
+            >
+            </ul>
+          </div>
+        </div>
       </div>
     </main>
+    <!-- 
+    <script>
+      var svg = document.querySelector(".tick")
+
+      function checked() {
+        svg.classList.toggle("checked");
+      }
+    </script> -->
   </body>
 </html>

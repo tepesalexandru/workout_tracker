@@ -20,7 +20,7 @@
 
       <div
         id="side-bar"
-        class="hidden md:flex flex-col justify-between items-center h-full p-8"
+        class="hidden sm:flex flex-col justify-between items-center h-full p-8"
       >
         <div class="flex flex-col items-center">
           <div class="p-4 h-48 w-48 bg-white flex rounded-full shadow-md">
@@ -33,7 +33,7 @@
 
         <nav>
           <ul
-            class="flex flex-col justify-between text-2xl font-semibold -mt-16 st-color"
+            class="flex flex-col justify-between text-2xl font-semibold -mt-16 b-color"
           >
             <a href="homepage" class="flex">
               <svg
@@ -54,7 +54,7 @@
               <span class="ml-2">Home</span>
             </a>
 
-            <a href="/public/pages/goals.html" class="my-8 flex t-color">
+            <a href="/" class="my-8 flex text-white">
               <svg
                 width="24"
                 height="24"
@@ -73,7 +73,7 @@
               <span class="ml-2">Goals</span>
             </a>
 
-            <a href="/public/pages/stats.html" class="flex">
+            <a href="/stats" class="flex">
               <svg
                 width="24"
                 height="24"
@@ -101,7 +101,7 @@
           </ul>
         </nav>
 
-        <a href="#" class="st-color">Sign Out</a>
+        <a href="#" class="b-color">Sign Out</a>
       </div>
 
       <!-- main -->
@@ -109,9 +109,34 @@
       <div class="flex flex-col p-8 w-full h-screen overflow-y-scroll">
         <header class="flex justify-between items-baseline w-full">
           <h1 class="text-5xl p-color font-bold">Set your Goals</h1>
-          <div class="flex items-baseline p-color text-xl font-bold">
+          <div class="flex items-end p-color text-xl font-bold">
             Water Reminder
-            <div class="ml-2 h-4 w-4 border-2 rounded border-blue-500"></div>
+            <div
+                  class="relative flex items-center inline-block h-5 w-5 ml-4 rounded cborder"
+                >
+                  <input
+                    type="checkbox"
+                    name=""
+                    id=""
+                    class="opacity-0 absolute w-full h-full"
+                  />
+                  <svg
+                    class="tick absolute h-4 w-4 pointer-events-none"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5 13L9 17L19 7"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
           </div>
         </header>
 
@@ -172,20 +197,43 @@
 
         <!-- Boxes -->
 
-        <div class="flex flex-col lg:flex-row flex-grow mt-8">
+        <div class="flex flex-col xl:flex-row flex-grow mt-8">
           <!-- Diet Box -->
 
           <div
             id="diet"
-            class="card rounded-lg shadow-md p-8 w-full h-full lg:mr-4"
+            class="card rounded-lg shadow-md p-8 w-full h-full xl:mr-4"
           >
             <div class="flex justify-between items-baseline">
               <h1 class="text-4xl p-color font-bold">Food Items</h1>
-              <div class="flex items-baseline p-color text-xl font-bold">
+              <div class="flex items-end p-color text-xl font-bold">
                 Everyday
                 <div
-                  class="ml-2 h-4 w-4 border-2 rounded border-blue-500"
-                ></div>
+                  class="relative flex items-center inline-block h-5 w-5 ml-4 rounded cborder"
+                >
+                  <input
+                    type="checkbox"
+                    name=""
+                    id=""
+                    class="opacity-0 absolute w-full h-full"
+                  />
+                  <svg
+                    class="tick absolute h-4 w-4 pointer-events-none"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5 13L9 17L19 7"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
               </div>
             </div>
 
@@ -235,9 +283,8 @@
                   <input
                     class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
                     placeholder="KCAL"
-                    type="number"
-                    min="0"
-                    max="9999"
+                    type="text"
+                    maxlength="4"
                   />
                 </div>
               </li>
@@ -253,9 +300,8 @@
                   <input
                     class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
                     placeholder="KCAL"
-                    type="number"
-                    min="0"
-                    max="9999"
+                    type="text"
+                    maxlength="4"
                   />
                 </div>
               </li>
@@ -271,9 +317,8 @@
                   <input
                     class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
                     placeholder="KCAL"
-                    type="number"
-                    min="0"
-                    max="9999"
+                    type="text"
+                    maxlength="4"
                   />
                 </div>
               </li>
@@ -289,9 +334,8 @@
                   <input
                     class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
                     placeholder="KCAL"
-                    type="number"
-                    min="0"
-                    max="9999"
+                    type="text"
+                    maxlength="4"
                   />
                 </div>
               </li>
@@ -307,9 +351,8 @@
                   <input
                     class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
                     placeholder="KCAL"
-                    type="number"
-                    min="0"
-                    max="9999"
+                    type="text"
+                    maxlength="4"
                   />
                 </div>
               </li>
@@ -320,15 +363,38 @@
 
           <div
             id="workout"
-            class="card rounded-lg shadow-md p-8 w-full h-full mt-8 lg:mt-0 lg:ml-4"
+            class="card rounded-lg shadow-md p-8 w-full h-full mt-8 xl:mt-0 xl:ml-4"
           >
             <div class="flex justify-between items-baseline">
               <h1 class="text-4xl p-color font-bold">Exercises</h1>
-              <div class="flex items-baseline p-color text-xl font-bold">
+              <div class="flex items-end p-color text-xl font-bold">
                 Everyday
                 <div
-                  class="ml-2 h-4 w-4 border-2 rounded border-blue-500"
-                ></div>
+                  class="relative flex items-center inline-block h-5 w-5 ml-4 rounded cborder"
+                >
+                  <input
+                    type="checkbox"
+                    name=""
+                    id=""
+                    class="opacity-0 absolute w-full h-full"
+                  />
+                  <svg
+                    class="tick absolute h-4 w-4 pointer-events-none"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5 13L9 17L19 7"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
               </div>
             </div>
 
@@ -339,10 +405,9 @@
                 class="pl-4 pr-12 py-4 font-semibold focus:outline-none rounded-md appearance-none p-color"
                 id="timeofday"
               >
-                <option value="breakfast">Breakfast</option>
-                <option value="lunch">Lunch</option>
-                <option value="snacks">Snacks</option>
-                <option value="dinner">Dinner</option>
+                <option value="morning">Morning</option>
+                <option value="afternoon">Afternoon</option>
+                <option value="evening">Evening</option>
               </select>
 
               <svg
@@ -381,9 +446,8 @@
                   <input
                     class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
                     placeholder="KCAL"
-                    type="number"
-                    min="0"
-                    max="9999"
+                    type="text"
+                    maxlength="4"
                   />
                 </div>
               </li>
@@ -399,9 +463,8 @@
                   <input
                     class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
                     placeholder="KCAL"
-                    type="number"
-                    min="0"
-                    max="9999"
+                    type="text"
+                    maxlength="4"
                   />
                 </div>
               </li>
@@ -417,9 +480,8 @@
                   <input
                     class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
                     placeholder="KCAL"
-                    type="number"
-                    min="0"
-                    max="9999"
+                    type="text"
+                    maxlength="4"
                   />
                 </div>
               </li>
@@ -435,9 +497,8 @@
                   <input
                     class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
                     placeholder="KCAL"
-                    type="number"
-                    min="0"
-                    max="9999"
+                    type="text"
+                    maxlength="4"
                   />
                 </div>
               </li>
@@ -453,9 +514,8 @@
                   <input
                     class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
                     placeholder="KCAL"
-                    type="number"
-                    min="0"
-                    max="9999"
+                    type="text"
+                    maxlength="4"
                   />
                 </div>
               </li>

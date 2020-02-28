@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Login | Workout Tracker</title>
+</head>
+<body class="w-full min-h-screen flex justify-center items-center bg-red-500">
+
+    <main class="">
+
+        <form id="login" class="flex flex-col bg-teal-500 p-8">
+
+            <h1 class="text-2xl font-bold font-sans">Login Here</h1>
+
+            <label for="email">Email</label>
+            <input type="email" name="l-email" id="">
+            <br>
+            <label for="password">password</label>
+            <input type="password" name="l-password" minlength="8" maxlength="16" id="">
+            <br>
+            <input type="submit" value="Log In">
+
+        </form>
+
+        <div id="register">
+            <form id="register" class="flex flex-col mt-16 bg-indigo-500 p-8">
+
+                <h1 class="text-2xl font-bold font-mono">Register Here</h1>
+    
+                <label for="email">Email</label>
+                <input type="email" name="r-email" id="">
+                <br>
+                <label for="username">Username</label>
+                <input type="text" name="username" maxlength="8" id="">
+                <br>
+                <label for="password">password</label>
+                <input type="password" name="r-password" minlength="8" maxlength="16" id="">
+                <br>
+                <input type="submit" value="Register">
+                <br>
+    
+            </form>
+        </div>
+
+    </main>
+    
+</body>
+</html>

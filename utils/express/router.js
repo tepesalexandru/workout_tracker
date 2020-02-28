@@ -13,7 +13,6 @@ router.use((req, res, next) => {
 });
 
 router.get("/", (req, res) => {
-  //res.sendFile(`${process.cwd()}/index.html`);
   res.sendFile(`${dir}/index.html`);
 });
 

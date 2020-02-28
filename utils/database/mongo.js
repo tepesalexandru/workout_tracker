@@ -9,9 +9,9 @@ mongoose
   .then(() => console.log("Connected to the database."))
   .catch(err => console.log(err));
 
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "error connection:"));
-db.once("open", () => {
+const mongoConnection = mongoose.connection;
+mongoConnection.on("error", console.error.bind(console, "error connection:"));
+mongoConnection.once("open", () => {
   console.log("we're connected!");
 });
 

@@ -25,6 +25,10 @@ router.get("/stats", (req, res) => {
   res.sendFile(`${dir}/public/pages/stats.html`);
 });
 
+router.get("/login", (req, res) => {
+  res.sendFile(`${dir}/public/pages/login.html`);
+});
+
 module.exports = {
   router
 };

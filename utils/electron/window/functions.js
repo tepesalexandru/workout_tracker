@@ -17,10 +17,10 @@ function createWindow() {
       protocol: "file",
       slashes: true
     })*/
-    "http://localhost:3000/"
+    "http://localhost:3000/login"
   );
 
-  //mainWindow.openDevTools();
+  mainWindow.openDevTools();
 
   mainWindow.on("ready-to-show", () => {
     mainWindow.removeMenu();

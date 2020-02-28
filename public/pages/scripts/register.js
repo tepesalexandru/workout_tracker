@@ -8,6 +8,6 @@ const __r_submit = document.querySelector("#r-submit");
 console.log(__r_email);
 
 __r_submit.addEventListener("click", e => {
-  e.preventDefault();
+  //e.preventDefault();
   console.log(__r_email.value, __r_username.value, __r_password.value);
 });

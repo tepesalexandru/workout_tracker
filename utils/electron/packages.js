@@ -9,6 +9,7 @@ const session = require("express-session");
 const passport = require("passport");
 const p_local = require("passport-local");
 const bcryrpt = require("bcryptjs");
+const bparser = require("body-parser");
 
 module.exports = {
   electron,
@@ -20,5 +21,6 @@ module.exports = {
   session,
   passport,
   p_local,
-  bcryrpt
+  bcryrpt,
+  bparser
 };

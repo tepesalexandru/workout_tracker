@@ -8,6 +8,27 @@ const User = require("../database/models/User");
 
 module.exports = function(passport) {
   passport.use(
-    new LocalStrategy({ usernameField: "email" }, (email, password, done) => {})
+    new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
+      // Search if User already exists
+      User.findOne({
+        email: email
+      }).then(user => {
+        if (!user) {
+          // User doesn't exist
+        } else {
+          // User exists
+        }
+      });
+    })
   );
+
+  passport.serializeUser(function(user, done) {
+    done(mull, user.id);
+  });
+
+  passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+      done(user, user);
+    });
+  });
 };

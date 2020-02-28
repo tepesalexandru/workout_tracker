@@ -9,6 +9,12 @@ mongoose
   .then(() => console.log("Connected to the database."))
   .catch(err => console.log(err));
 
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "error connection:"));
+db.once("open", () => {
+  console.log("we're connected!");
+});
+
 /*async function connectoToMongoDB() {
   return await mongo.connect(uri, {
     useUnifiedTopology: true,

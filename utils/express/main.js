@@ -1,9 +1,19 @@
 /// Core ExpressJS file
 
-const { express, flash, session } = require("../electron/packages");
+// Packages required
+const {
+  express,
+  flash,
+  session,
+  passport,
+  bparser
+} = require("../electron/packages");
 const { dir } = require("../../index");
 
 const expressApp = express();
+
+// Passport Config
+require("../config/passport")(passport);
 
 // Express Session
 expressApp.use(
@@ -20,6 +30,14 @@ expressApp.use(flash());
 expressApp.listen(3000);
 
 expressApp.use(express.static(dir));
+
+expressApp.use(
+  bparser.urlencoded({
+    extended: false
+  })
+);
+
+expressApp.use(bparser.json());
 
 const { router } = require("./router");
 

@@ -1,18 +1,20 @@
 /// Core ExpressJS file
 
-const { express } = require("../electron/packages");
-const { dir } = require("../../index");
+// Packages required
+const { express, passport } = require("../electron/packages");
 
+// Initialize express instance
 const expressApp = express();
 
+// Passport Config
+require("../config/passport")(passport);
+
+// Port listening to
 expressApp.listen(3000);
-
-expressApp.use(express.static(dir));
-
-const { router } = require("./router");
-
-expressApp.use("/", router);
 
 module.exports = {
   expressApp
 };
+
+// Config Middleware
+require("./middleware/main");

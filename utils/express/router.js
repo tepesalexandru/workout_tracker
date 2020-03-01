@@ -13,7 +13,6 @@ router.use((req, res, next) => {
 });
 
 router.get("/", (req, res) => {
-  //res.sendFile(`${process.cwd()}/index.html`);
   res.sendFile(`${dir}/index.html`);
 });
 
@@ -25,6 +24,12 @@ router.get("/stats", (req, res) => {
   res.sendFile(`${dir}/public/pages/stats.html`);
 });
 
+router.get("/login", (req, res) => {
+  res.sendFile(`${dir}/public/pages/login.html`);
+});
+
 module.exports = {
   router
 };
+
+require("./auth");

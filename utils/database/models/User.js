@@ -15,10 +15,10 @@ const UserSchema = new mongoose.Schema({
   },
   date: {
     type: Date,
-    required: Date.now
+    default: Date.now
   }
 });
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", UserSchema, "users");
 
 module.exports = User;

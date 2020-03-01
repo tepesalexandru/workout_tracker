@@ -1,8 +1,14 @@
 /// Core File for the Electron Window Functions
 
 // External Imports
-let { mainWindow, BrowserWindow } = require("../variables");
-let { url, path } = require("../packages");
+let {
+  mainWindow,
+  BrowserWindow
+} = require("../variables");
+let {
+  url,
+  path
+} = require("../packages");
 
 function createWindow() {
   console.log(require.main.filename);
@@ -20,7 +26,7 @@ function createWindow() {
     "http://localhost:3000/"
   );
 
-  //mainWindow.openDevTools();
+  // mainWindow.openDevTools();
 
   mainWindow.on("ready-to-show", () => {
     mainWindow.removeMenu();

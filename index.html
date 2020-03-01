@@ -1,111 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/public/styles.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <title>Home | Workout Tracker</title>
-  </head>
-  <body>
-    <main class="flex w-full h-screen">
-      <!-- Side Bar -->
 
-      <div
-        id="side-bar"
-        class="hidden sm:flex flex-col justify-between items-center h-full p-8"
-      >
-        <div class="flex flex-col items-center">
-          <div class="p-4 h-48 w-48 bg-white flex rounded-full shadow-md">
-            <div id="avatar" class="rounded-full w-full h-full"></div>
-          </div>
-          <h1 class="text-3xl font-bold mt-4 text-white">WOMAN</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
+  <script defer src="node_modules/swup/dist/swup.min.js"></script>
+  <script defer src="/public/client.js"></script>
+  <link rel="stylesheet" href="/public/styles.css" />
+  <title>Home | Workout Tracker</title>
+</head>
+
+<body onload=stopPreLoader()">
+  <!-- onload="preLoader()" -->
+  <!-- preloader -->
+  <div id="preloader"></div>
+
+  <main class="flex w-full h-screen">
+    <!-- Side Bar -->
+
+    <div id="side-bar" class="hidden sm:flex flex-col justify-between items-center h-full p-8">
+      <div class="flex flex-col items-center">
+        <div class="p-4 h-48 w-48 bg-white flex rounded-full shadow-md">
+          <div id="avatar" class="rounded-full w-full h-full"></div>
         </div>
-
-        <!-- Navigation -->
-
-        <nav>
-          <ul
-            class="flex flex-col justify-between text-2xl font-semibold -mt-16 b-color"
-          >
-            <a href="homepage" class="flex text-white">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span class="ml-2">Home</span>
-            </a>
-
-            <a href="/goals" class="my-8 flex">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span class="ml-2">Goals</span>
-            </a>
-
-            <a href="/stats" class="flex">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 3.05493C6.50005 3.55238 3 7.36745 3 12C3 16.9706 7.02944 21 12 21C16.6326 21 20.4476 17.5 20.9451 13H11V3.05493Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M20.4878 9H15V3.5123C17.5572 4.41613 19.5839 6.44285 20.4878 9Z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span class="ml-2">Stats</span>
-            </a>
-          </ul>
-        </nav>
-
-        <a href="#" class="b-color">Sign Out</a>
+        <h1 class="text-3xl font-bold mt-4 text-white">WOMAN</h1>
       </div>
 
-      <!-- main -->
+      <!-- Navigation -->
 
+      <nav>
+        <ul class="flex flex-col justify-between text-2xl font-semibold -mt-16 b-color">
+          <a href="/" class="flex text-white">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="ml-2">Home</span>
+          </a>
+
+          <a href="/goals" class="my-8 flex">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="ml-2">Goals</span>
+          </a>
+
+          <a href="/stats" class="flex">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11 3.05493C6.50005 3.55238 3 7.36745 3 12C3 16.9706 7.02944 21 12 21C16.6326 21 20.4476 17.5 20.9451 13H11V3.05493Z"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M20.4878 9H15V3.5123C17.5572 4.41613 19.5839 6.44285 20.4878 9Z" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="ml-2">Stats</span>
+          </a>
+        </ul>
+      </nav>
+
+      <a href="#" class="b-color">Sign Out</a>
+    </div>
+
+    <!-- main -->
+
+    <!-- page transition -->
+    <div id="swup" class="transition-fade">
       <div class="flex flex-col p-8 w-full h-screen overflow-y-scroll">
         <header class="flex justify-between items-baseline w-full">
           <h1 id="contextual-messages" class="text-5xl p-color font-bold">
@@ -118,17 +82,17 @@
 
         <!-- Calendar -->
 
-        <div
-          id="Quote"
-          class="card flex w-full rounded-lg mt-8 py-6 px-4 lg:px-8 shadow-md"
-        >
+        <div id="Quote" class="card flex w-full rounded-lg mt-8 py-6 px-4 lg:px-8 shadow-md">
 
-          <span class="s-color"><svg width="21" height="16" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1.69729 2.292C3.10029 0.771 5.22329 0 8.00629 0H9.00629V2.819L8.20229 2.98C6.83229 3.254 5.87929 3.793 5.36929 4.584C5.05629 5.071 4.95329 5.591 4.93129 6H7.00629H8.00629C8.55929 6 9.00629 6.447 9.00629 7V14C9.00629 15.103 8.10929 16 7.00629 16H1.00629C0.453288 16 0.00628783 15.553 0.00628783 15V10L0.00928785 7.081C0.000287852 6.97 -0.189712 4.34 1.69729 2.292ZM18.0063 16H12.0063C11.4533 16 11.0063 15.553 11.0063 15V10L11.0093 7.081C11.0003 6.97 10.8103 4.34 12.6973 2.292C14.1003 0.771 16.2233 0 19.0063 0H20.0063V2.819L19.2023 2.98C17.8323 3.254 16.8793 3.793 16.3693 4.584C16.0563 5.071 15.9533 5.591 15.9313 6H18.0063H19.0063C19.5593 6 20.0063 6.447 20.0063 7V14C20.0063 15.103 19.1093 16 18.0063 16Z" fill="currentColor"/>
+          <span class="s-color"><svg width="21" height="16" viewBox="0 0 21 16" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M1.69729 2.292C3.10029 0.771 5.22329 0 8.00629 0H9.00629V2.819L8.20229 2.98C6.83229 3.254 5.87929 3.793 5.36929 4.584C5.05629 5.071 4.95329 5.591 4.93129 6H7.00629H8.00629C8.55929 6 9.00629 6.447 9.00629 7V14C9.00629 15.103 8.10929 16 7.00629 16H1.00629C0.453288 16 0.00628783 15.553 0.00628783 15V10L0.00928785 7.081C0.000287852 6.97 -0.189712 4.34 1.69729 2.292ZM18.0063 16H12.0063C11.4533 16 11.0063 15.553 11.0063 15V10L11.0093 7.081C11.0003 6.97 10.8103 4.34 12.6973 2.292C14.1003 0.771 16.2233 0 19.0063 0H20.0063V2.819L19.2023 2.98C17.8323 3.254 16.8793 3.793 16.3693 4.584C16.0563 5.071 15.9533 5.591 15.9313 6H18.0063H19.0063C19.5593 6 20.0063 6.447 20.0063 7V14C20.0063 15.103 19.1093 16 18.0063 16Z"
+                fill="currentColor" />
             </svg>
-            </span>
+          </span>
           <p id="quote" class="-ml-2 leading-8 p-color text-lg font-bold">
-            
+
           </p>
         </div>
 
@@ -137,10 +101,7 @@
         <div class="flex flex-col xl:flex-row flex-grow mt-8">
           <!-- Diet Box -->
 
-          <div
-            id="diet"
-            class="card rounded-lg shadow-md p-8 w-full h-full lg:mr-4"
-          >
+          <div id="diet" class="card rounded-lg shadow-md p-8 w-full h-full lg:mr-4">
             <div>
               <h1 class="text-4xl p-color font-bold">Food Items</h1>
             </div>
@@ -149,35 +110,15 @@
 
             <ul id="diet-items" class="p-color text-2xl font-semibold mt-8">
               <li class="p-color text-2xl font-semibold mb-8">
-                <div
-                  class="relative flex items-center inline-block h-6 w-6 rounded cborder"
-                >
-                  <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                    class="opacity-0 absolute w-full h-full"
-                  />
-                  <svg
-                    class="tick absolute pointer-events-none"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5 13L9 17L19 7"
-                      stroke="currentColor"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
+                <div class="relative flex items-center inline-block h-6 w-6 rounded cborder">
+                  <input type="checkbox" name="" id="" class="opacity-0 absolute w-full h-full" />
+                  <svg class="tick absolute pointer-events-none" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                      stroke-linejoin="round" />
                   </svg>
 
-                  <p
-                    class="pointer-events-none inline-block list-item text-3xl font-bold pl-10"
-                  >
+                  <p class="pointer-events-none inline-block list-item text-3xl font-bold pl-10">
                     Pasta
                   </p>
                 </div>
@@ -187,26 +128,21 @@
 
           <!-- Workout Box -->
 
-          <div
-            id="workout"
-            class="card rounded-lg shadow-md p-8 w-full h-full mt-8 xl:mt-0 xl:ml-4"
-          >
+          <div id="workout" class="card rounded-lg shadow-md p-8 w-full h-full mt-8 xl:mt-0 xl:ml-4">
             <div>
               <h1 class="text-4xl p-color font-bold">Exercises</h1>
             </div>
 
             <!-- Exercise List -->
 
-            <ul
-              id="exercise-items"
-              class="p-color text-2xl font-semibold mt-8 pl-6"
-            >
+            <ul id="exercise-items" class="p-color text-2xl font-semibold mt-8 pl-6">
             </ul>
           </div>
         </div>
       </div>
-    </main>
-    <!-- 
+    </div>
+  </main>
+  <!-- 
     <script>
       var svg = document.querySelector(".tick")
 
@@ -214,5 +150,12 @@
         svg.classList.toggle("checked");
       }
     </script> -->
-  </body>
+  <script>
+    var preLoader = document.getElementById('preloader');
+    setTimeout(function stopPreLoader() {
+      preLoader.style.display = "none"
+    }, 3000);
+  </script>
+</body>
+
 </html>

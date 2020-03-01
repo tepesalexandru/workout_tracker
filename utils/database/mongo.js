@@ -1,8 +1,7 @@
-/// Core file for the MongoDB Database
-const mongo = require("mongodb").MongoClient;
-
 const uri = require("../config/keys").mongoURI;
 const { mongoose } = require("../electron/packages");
+
+const User = require("../database/models/User");
 
 mongoose
   .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -12,7 +11,18 @@ mongoose
 const mongoConnection = mongoose.connection;
 mongoConnection.on("error", console.error.bind(console, "error connection:"));
 mongoConnection.once("open", () => {
+  console.log(mongoConnection.collection.getIndexes());
   console.log("we're connected!");
+  const new_user = new User({
+    name: "Hello",
+    email: "this is a test",
+    password: "123"
+  });
+
+  new_user.save((err, user) => {
+    if (err) return console.error(err);
+    console.log(user + " has been saved to the database");
+  });
 });
 
 /*async function connectoToMongoDB() {

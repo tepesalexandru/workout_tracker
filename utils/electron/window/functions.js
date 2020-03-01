@@ -26,11 +26,7 @@ function createWindow() {
     "http://localhost:3000/login"
   );
 
-<<<<<<< HEAD
-  // mainWindow.openDevTools();
-=======
   mainWindow.openDevTools();
->>>>>>> feature-register-dom
 
   mainWindow.on("ready-to-show", () => {
     mainWindow.removeMenu();

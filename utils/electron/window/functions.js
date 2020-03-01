@@ -5,7 +5,7 @@ let { mainWindow, BrowserWindow } = require("../variables");
 let { url, path } = require("../packages");
 
 function createWindow() {
-  console.log(require.main.filename);
+  //console.log(require.main.filename);
   mainWindow = new BrowserWindow({
     show: false,
     width: 1280,

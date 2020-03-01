@@ -8,10 +8,17 @@ const { forwardAuthenticated } = require("../config/auth");
 // Load User Model
 const User = require("../database/models/User");
 
-router.get("/register", (req, res) => {});
+router.get("/login", forwardAuthenticated, (req, res) =>
+  res.redirect("/login")
+);
+
+router.post("/register", (req, res) => {
+  console.log(req.body);
+  res.redirect("/login");
+});
 
 // Handle Register Request
-router.post("/login", (req, res) => {
+router.post("/register", (req, res) => {
   // Extract Form Inputs
   const { r_email, r_username, r_password } = req.body;
 
@@ -44,4 +51,12 @@ router.post("/login", (req, res) => {
       });
     }
   });
+});
+
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true
+  })(req, res, next);
 });

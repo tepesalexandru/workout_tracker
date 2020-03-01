@@ -20,7 +20,7 @@ function createWindow() {
     "http://localhost:3000/"
   );
 
-  //mainWindow.openDevTools();
+  // mainWindow.openDevTools();
 
   mainWindow.on("ready-to-show", () => {
     mainWindow.removeMenu();

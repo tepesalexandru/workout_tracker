@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
+  <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script> 
   <script defer src="node_modules/swup/dist/swup.min.js"></script>
   <script defer src="/public/client.js"></script>
   <link rel="stylesheet" href="/public/styles.css" />
@@ -69,8 +70,7 @@
     <!-- main -->
 
     <!-- page transition -->
-    <div id="swup" class="transition-fade">
-      <div class="flex flex-col p-8 w-full h-screen overflow-y-scroll">
+      <div id="swup" class="transition-fade flex flex-col p-8 w-full h-screen overflow-y-scroll">
         <header class="flex justify-between items-baseline w-full">
           <h1 id="contextual-messages" class="text-5xl p-color font-bold">
             Good Evening
@@ -91,7 +91,7 @@
                 fill="currentColor" />
             </svg>
           </span>
-          <p id="quote" class="-ml-2 leading-8 p-color text-lg font-bold">
+          <p id="quote swup" class="transition-fade -ml-2 leading-8 p-color text-lg font-bold">
 
           </p>
         </div>
@@ -101,7 +101,7 @@
         <div class="flex flex-col xl:flex-row flex-grow mt-8">
           <!-- Diet Box -->
 
-          <div id="diet" class="card rounded-lg shadow-md p-8 w-full h-full lg:mr-4">
+          <div id="diet swup" class="transition-fade card rounded-lg shadow-md p-8 w-full h-full lg:mr-4">
             <div>
               <h1 class="text-4xl p-color font-bold">Food Items</h1>
             </div>
@@ -128,7 +128,7 @@
 
           <!-- Workout Box -->
 
-          <div id="workout" class="card rounded-lg shadow-md p-8 w-full h-full mt-8 xl:mt-0 xl:ml-4">
+          <div id="workout swup" class="transition-fade card rounded-lg shadow-md p-8 w-full h-full mt-8 xl:mt-0 xl:ml-4">
             <div>
               <h1 class="text-4xl p-color font-bold">Exercises</h1>
             </div>
@@ -140,16 +140,7 @@
           </div>
         </div>
       </div>
-    </div>
   </main>
-  <!-- 
-    <script>
-      var svg = document.querySelector(".tick")
-
-      function checked() {
-        svg.classList.toggle("checked");
-      }
-    </script> -->
   <script>
     var preLoader = document.getElementById('preloader');
     setTimeout(function stopPreLoader() {

@@ -157,17 +157,17 @@ select option {
 
 /* for transition */
 .transition-fade {
-    opacity: 1;
-    transition: 600ms;
-    transform: translateX(0);
-    transform-origin: left;
+    opacity: 1 !important;
+    transition: 500ms !important;
+    transform: translateY(0) !important;
+    transform-origin: top !important;
 }
 
 html.is-animating .transition-fade {
-    opacity: 1;
-    transform: translateX(100%);
+    opacity: 1 !important;
+    transform: translateY(-10%) !important;
 }
 
 html.is-leaving .transition-fade {
-    opacity: 0;
+    opacity: 0 !important;
 }

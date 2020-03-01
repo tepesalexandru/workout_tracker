@@ -1,6 +1,10 @@
 /// Core file for keys
 dbPassword =
+<<<<<<< HEAD
   "mongodb+srv://adminUser:!adminuser@testdatabase-kyktn.mongodb.net/test?retryWrites=true&w=majority";
+=======
+  "mongodb://adminUser:!adminuser@testdatabase-shard-00-00-kyktn.mongodb.net:27017,testdatabase-shard-00-01-kyktn.mongodb.net:27017,testdatabase-shard-00-02-kyktn.mongodb.net:27017/test?ssl=true&replicaSet=TestDatabase-shard-0&authSource=admin&retryWrites=true&w=majority";
+>>>>>>> feature-register-dom
 
 module.exports = {
   mongoURI: dbPassword

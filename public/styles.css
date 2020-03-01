@@ -171,3 +171,17 @@ html.is-animating .transition-fade {
 html.is-leaving .transition-fade {
     opacity: 0 !important;
 }
+
+/* for transitioning side bar */
+.transition-pop {
+    opacity: 1 !important;
+    transition: 0ms !important;
+}
+
+html.is-animating .transition-pop {
+    opacity: 1 !important;
+}
+
+html.is-leaving .transition-pop {
+    opacity: 0 !important;
+}

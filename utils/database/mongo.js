@@ -5,7 +5,9 @@ const User = require("../database/models/User");
 
 mongoose
   .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("Connected to the database."))
+  .then(() => {
+    console.log("Connected to the database.");
+  })
   .catch(err => console.log(err));
 
 const mongoConnection = mongoose.connection;

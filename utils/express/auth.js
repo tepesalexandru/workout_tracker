@@ -12,11 +12,6 @@ router.get("/login", forwardAuthenticated, (req, res) =>
   res.redirect("/login")
 );
 
-router.post("/register", (req, res) => {
-  console.log(req.body);
-  res.redirect("/login");
-});
-
 // Handle Register Request
 router.post("/register", (req, res) => {
   // Extract Form Inputs
@@ -46,11 +41,13 @@ router.post("/register", (req, res) => {
           newUser.save((err, user) => {
             if (err) return console.error(err);
             console.log(user + " has been saved to the database");
+            //res.redirect("/");
           });
         });
       });
     }
   });
+  res.redirect("/");
 });
 
 router.post("/login", (req, res, next) => {

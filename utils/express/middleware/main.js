@@ -1,7 +1,13 @@
 /// Core file for ExpressJS Middleware
 
 // Packages
-const { flash, session, express, bparser } = require("../../electron/packages");
+const {
+  flash,
+  session,
+  express,
+  bparser,
+  passport
+} = require("../../electron/packages");
 
 // Import Express instance
 const { expressApp } = require("../main");
@@ -20,6 +26,11 @@ expressApp.use(
     saveUninitialized: true
   })
 );
+
+// Passport middleware
+
+expressApp.use(passport.initialize());
+expressApp.use(passport.session());
 
 // Connect Flash
 expressApp.use(flash());

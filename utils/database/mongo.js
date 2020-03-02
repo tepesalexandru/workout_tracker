@@ -13,6 +13,7 @@ mongoose
 const mongoConnection = mongoose.connection;
 mongoConnection.on("error", console.error.bind(console, "error connection:"));
 mongoConnection.once("open", () => {
+  //console.log(mongoConnection.collection.getIndexes());
   console.log("we're connected!");
 });
 /*const new_user = new User({

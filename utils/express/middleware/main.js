@@ -24,8 +24,13 @@ expressApp.use(
   })
 );
 
-// Passport middleware
+// Directory of all EJS files
+expressApp.set("views", `${dir}/public/pages`);
 
+// Set ExpressJS view engine to render EJS files
+expressApp.set("view-engine", "ejs");
+
+// Passport middleware
 expressApp.use(passport.initialize());
 expressApp.use(passport.session());
 
@@ -41,12 +46,7 @@ expressApp.use(
   })
 );
 
-expressApp.use(passport.initialize());
-expressApp.use(passport.session());
-
 expressApp.use(express.static(dir));
-
-//expressApp.use(bparser.json());
 
 // Use Router
 expressApp.use("/", router);

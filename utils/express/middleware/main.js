@@ -24,6 +24,9 @@ expressApp.use(
   })
 );
 
+expressApp.set("views", `${dir}/public/pages`);
+expressApp.set("view-engine", "ejs");
+
 // Passport middleware
 
 expressApp.use(passport.initialize());

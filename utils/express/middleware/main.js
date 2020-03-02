@@ -18,12 +18,9 @@ const { dir } = require("../../../index");
 // Import Express router
 const { router } = require("../router");
 
-// Express Session
 expressApp.use(
-  session({
-    secret: "secret",
-    resave: true,
-    saveUninitialized: true
+  bparser.urlencoded({
+    extended: false
   })
 );
 
@@ -35,15 +32,21 @@ expressApp.use(passport.session());
 // Connect Flash
 expressApp.use(flash());
 
-expressApp.use(express.static(dir));
-
+// Express Session
 expressApp.use(
-  bparser.urlencoded({
-    extended: false
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false
   })
 );
 
-expressApp.use(bparser.json());
+expressApp.use(passport.initialize());
+expressApp.use(passport.session());
+
+expressApp.use(express.static(dir));
+
+//expressApp.use(bparser.json());
 
 // Use Router
 expressApp.use("/", router);

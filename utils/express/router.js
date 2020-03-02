@@ -6,12 +6,6 @@ const { dir } = require("../../index");
 
 const router = express.Router();
 
-// Router Middleware
-router.use((req, res, next) => {
-  // Nothing yet in here
-  next();
-});
-
 router.get("/", (req, res) => {
   res.sendFile(`${dir}/index.html`);
 });

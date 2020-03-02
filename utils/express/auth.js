@@ -8,7 +8,42 @@ const { forwardAuthenticated } = require("../config/auth");
 // Load User Model
 const User = require("../database/models/User");
 
-router.get("/login", forwardAuthenticated, (req, res) =>
+router.post("/register", async (req, res) => {
+  try {
+    const hashedPassword = await bcryrpt.hash(req.body.password, 10);
+    const newUser = new User({
+      name: req.body.name,
+      email: req.body.email,
+      password: hashedPassword
+    });
+    newUser.save((err, user) => {
+      if (err) return console.log(err);
+      console.log(user + " has been created");
+    });
+    res.redirect("/");
+  } catch {
+    res.redirect("/register");
+  }
+});
+
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/register",
+    failureFlash: true
+  })
+);
+
+router.get("/register", (req, res) => {
+  res.redirect("/login");
+});
+
+router.get("/login", (req, res) => {
+  res.redirect("/login");
+});
+
+/*router.get("/login", forwardAuthenticated, (req, res) =>
   res.redirect("/login")
 );
 
@@ -57,3 +92,4 @@ router.post("/login", (req, res, next) => {
     failureFlash: true
   })(req, res, next);
 });
+*/

@@ -12,6 +12,7 @@
   </head>
   <body class="w-full min-h-screen flex justify-center items-center bg-red-500">
     <main class="">
+      <% if (message) { %> <%= message %> <% } %>
       <form
         id="login"
         class="flex flex-col bg-teal-500 p-8"

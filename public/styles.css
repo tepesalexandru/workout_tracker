@@ -175,11 +175,14 @@ html.is-leaving .transition-fade {
 /* for transitioning side bar */
 .transition-pop {
     opacity: 1 !important;
-    transition: 0ms !important;
+    transition: 1ms !important;
+    transform: translateX(0) !important;
+    transform-origin: right !important;
 }
 
 html.is-animating .transition-pop {
     opacity: 1 !important;
+    transform: translateX(-1%) !important;
 }
 
 html.is-leaving .transition-pop {

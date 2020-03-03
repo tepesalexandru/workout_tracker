@@ -1,427 +1,267 @@
 <%- include('partials/header.ejs'); -%>
-  <body>
-    <main class="flex w-full h-screen">
-      <!-- Side Bar -->
-      <%- include('partials/avatar.ejs'); -%>
-        <!-- Navigation -->
-        <%- include('partials/nav.ejs'); -%>
-      <!-- main -->
-      
-      <div id="swup" class="transition-fade flex flex-col p-8 w-full h-screen overflow-y-scroll">
-        <header class="flex justify-between items-baseline w-full">
-          <h1 class="text-5xl p-color font-bold">Set your Goals</h1>
-          <div class="flex items-end p-color text-xl font-bold">
-            Water Reminder
-            <div
-                  class="relative flex items-center inline-block h-5 w-5 ml-4 rounded cborder"
-                >
-                  <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                    class="opacity-0 absolute w-full h-full"
-                  />
-                  <svg
-                    class="tick absolute h-4 w-4 pointer-events-none"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5 13L9 17L19 7"
-                      stroke="currentColor"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </div>
-          </div>
-        </header>
 
-        <!-- Calendar -->
+<body>
+  <main class="flex w-full h-screen">
+    <!-- Side Bar -->
+    <%- include('partials/avatar.ejs'); -%>
+    <!-- Navigation -->
+    <nav>
+      <ul id="swup" class="transition-pop flex flex-col justify-between text-2xl font-semibold -mt-16 b-color">
+        <a href="/" class="flex">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="ml-2">Home</span>
+        </a>
 
-        <div
-          id="calendar swup" class="transition-fade card w-full rounded-lg mt-8 py-6 px-4 lg:px-8 shadow-md"
-        >
-          <div
-            id="days"
-            class="flex justify-around items-center text-xl lg:text-2xl font-bold p-color"
-          >
-            <div
-              id="sunday"
-              class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full"
-            >
-              <span>S</span>
-            </div>
-            <div
-              id="monday"
-              class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full"
-            >
-              <span>M</span>
-            </div>
-            <div
-              id="tuesday"
-              class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full"
-            >
-              <span>T</span>
-            </div>
-            <div
-              id="wednesday"
-              class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full pill"
-            >
-              <span>W</span>
-            </div>
-            <div
-              id="thursday"
-              class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full"
-            >
-              <span>T</span>
-            </div>
-            <div
-              id="friday"
-              class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full"
-            >
-              <span>F</span>
-            </div>
-            <div
-              id="saturday"
-              class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full"
-            >
-              <span>S</span>
-            </div>
+        <a href="/goals" class="my-8 flex text-white">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="ml-2">Goals</span>
+        </a>
+
+        <a href="/stats" class="flex">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11 3.05493C6.50005 3.55238 3 7.36745 3 12C3 16.9706 7.02944 21 12 21C16.6326 21 20.4476 17.5 20.9451 13H11V3.05493Z"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M20.4878 9H15V3.5123C17.5572 4.41613 19.5839 6.44285 20.4878 9Z" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="ml-2">Stats</span>
+        </a>
+      </ul>
+    </nav>
+
+    <a href="/login" class="b-color">Sign Out</a>
+    </div>
+    <!-- main -->
+
+    <div id="swup" class="transition-fade flex flex-col p-8 w-full h-screen overflow-y-scroll">
+      <header class="flex justify-between items-baseline w-full">
+        <h1 class="text-5xl p-color font-bold">Set your Goals</h1>
+        <div class="flex items-end p-color text-xl font-bold">
+          Water Reminder
+          <div class="relative flex items-center inline-block h-5 w-5 ml-4 rounded cborder">
+            <input type="checkbox" name="" id="" class="opacity-0 absolute w-full h-full" />
+            <svg class="tick absolute h-4 w-4 pointer-events-none" width="20" height="20" viewBox="0 0 24 24"
+              fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
           </div>
         </div>
+      </header>
 
-        <!-- Boxes -->
+      <!-- Calendar -->
 
-        <div class="flex flex-col xl:flex-row flex-grow mt-8">
-          <!-- Diet Box -->
-
-          <div
-            id="diet swup" class="transition-fade card rounded-lg shadow-md p-8 w-full h-full xl:mr-4"
-          >
-            <div class="flex justify-between items-baseline">
-              <h1 class="text-4xl p-color font-bold">Food Items</h1>
-              <div class="flex items-end p-color text-xl font-bold">
-                Everyday
-                <div
-                  class="relative flex items-center inline-block h-5 w-5 ml-4 rounded cborder"
-                >
-                  <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                    class="opacity-0 absolute w-full h-full"
-                  />
-                  <svg
-                    class="tick absolute h-4 w-4 pointer-events-none"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5 13L9 17L19 7"
-                      stroke="currentColor"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <!-- select -->
-            <div class="flex items-center text-xl mt-8">
-              <select
-                name="timeofday"
-                class="pl-4 pr-12 py-4 font-semibold focus:outline-none rounded-md appearance-none p-color"
-                id="timeofday"
-              >
-                <option value="breakfast">Breakfast</option>
-                <option value="lunch">Lunch</option>
-                <option value="snacks">Snacks</option>
-                <option value="dinner">Dinner</option>
-              </select>
-
-              <svg
-                id="select"
-                class="p-color pointer-events-none -ml-10"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19 9L12 16L5 9"
-                  stroke="currentColor"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-
-            <!-- Food List -->
-
-            <ul id="diet-list" class="p-color text-2xl font-semibold mt-8 pl-6">
-              <li>
-                <div class="flex w-full pb-2">
-                  <input
-                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
-                    placeholder="Add food item"
-                    type="text"
-                    maxlength="25"
-                  />
-                  <input
-                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
-                    placeholder="KCAL"
-                    type="text"
-                    maxlength="4"
-                  />
-                </div>
-              </li>
-
-              <li>
-                <div class="flex w-full py-2">
-                  <input
-                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
-                    placeholder="Add food item"
-                    type="text"
-                    maxlength="25"
-                  />
-                  <input
-                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
-                    placeholder="KCAL"
-                    type="text"
-                    maxlength="4"
-                  />
-                </div>
-              </li>
-
-              <li>
-                <div class="flex w-full py-2">
-                  <input
-                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
-                    placeholder="Add food item"
-                    type="text"
-                    maxlength="25"
-                  />
-                  <input
-                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
-                    placeholder="KCAL"
-                    type="text"
-                    maxlength="4"
-                  />
-                </div>
-              </li>
-
-              <li>
-                <div class="flex w-full py-2">
-                  <input
-                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
-                    placeholder="Add food item"
-                    type="text"
-                    maxlength="25"
-                  />
-                  <input
-                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
-                    placeholder="KCAL"
-                    type="text"
-                    maxlength="4"
-                  />
-                </div>
-              </li>
-
-              <li>
-                <div class="flex w-full py-2">
-                  <input
-                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
-                    placeholder="Add food item"
-                    type="text"
-                    maxlength="25"
-                  />
-                  <input
-                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
-                    placeholder="KCAL"
-                    type="text"
-                    maxlength="4"
-                  />
-                </div>
-              </li>
-            </ul>
+      <div id="calendar swup" class="transition-fade card w-full rounded-lg mt-8 py-6 px-4 lg:px-8 shadow-md">
+        <div id="days" class="flex justify-around items-center text-xl lg:text-2xl font-bold p-color">
+          <div id="sunday" class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full">
+            <span>S</span>
           </div>
-
-          <!-- Workout Box -->
-
-          <div
-            id="workout swup" class="transition-fade card rounded-lg shadow-md p-8 w-full h-full mt-8 xl:mt-0 xl:ml-4"
-          >
-            <div class="flex justify-between items-baseline">
-              <h1 class="text-4xl p-color font-bold">Exercises</h1>
-              <div class="flex items-end p-color text-xl font-bold">
-                Everyday
-                <div
-                  class="relative flex items-center inline-block h-5 w-5 ml-4 rounded cborder"
-                >
-                  <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                    class="opacity-0 absolute w-full h-full"
-                  />
-                  <svg
-                    class="tick absolute h-4 w-4 pointer-events-none"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5 13L9 17L19 7"
-                      stroke="currentColor"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <!-- select -->
-            <div class="flex items-center text-xl mt-8">
-              <select
-                name="timeofday"
-                class="pl-4 pr-12 py-4 font-semibold focus:outline-none rounded-md appearance-none p-color"
-                id="timeofday"
-              >
-                <option value="morning">Morning</option>
-                <option value="afternoon">Afternoon</option>
-                <option value="evening">Evening</option>
-              </select>
-
-              <svg
-                id="select"
-                class="p-color pointer-events-none -ml-10"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19 9L12 16L5 9"
-                  stroke="currentColor"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-
-            <!-- Exercise List -->
-
-            <ul
-              id="exercise-list"
-              class="p-color text-2xl font-semibold mt-8 pl-6"
-            >
-              <li>
-                <div class="flex w-full pb-2">
-                  <input
-                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
-                    placeholder="Exercise"
-                    type="text"
-                    maxlength="25"
-                  />
-                  <input
-                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
-                    placeholder="KCAL"
-                    type="text"
-                    maxlength="4"
-                  />
-                </div>
-              </li>
-
-              <li>
-                <div class="flex w-full py-2">
-                  <input
-                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
-                    placeholder="Exercise"
-                    type="text"
-                    maxlength="25"
-                  />
-                  <input
-                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
-                    placeholder="KCAL"
-                    type="text"
-                    maxlength="4"
-                  />
-                </div>
-              </li>
-
-              <li>
-                <div class="flex w-full py-2">
-                  <input
-                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
-                    placeholder="Exercise"
-                    type="text"
-                    maxlength="25"
-                  />
-                  <input
-                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
-                    placeholder="KCAL"
-                    type="text"
-                    maxlength="4"
-                  />
-                </div>
-              </li>
-
-              <li>
-                <div class="flex w-full py-2">
-                  <input
-                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
-                    placeholder="Exercise"
-                    type="text"
-                    maxlength="25"
-                  />
-                  <input
-                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
-                    placeholder="KCAL"
-                    type="text"
-                    maxlength="4"
-                  />
-                </div>
-              </li>
-
-              <li>
-                <div class="flex w-full py-2">
-                  <input
-                    class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none"
-                    placeholder="Exercise"
-                    type="text"
-                    maxlength="25"
-                  />
-                  <input
-                    class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right"
-                    placeholder="KCAL"
-                    type="text"
-                    maxlength="4"
-                  />
-                </div>
-              </li>
-            </ul>
+          <div id="monday" class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full">
+            <span>M</span>
+          </div>
+          <div id="tuesday" class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full">
+            <span>T</span>
+          </div>
+          <div id="wednesday" class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full pill">
+            <span>W</span>
+          </div>
+          <div id="thursday" class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full">
+            <span>T</span>
+          </div>
+          <div id="friday" class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full">
+            <span>F</span>
+          </div>
+          <div id="saturday" class="flex justify-center items-center w-12 h-12 lg:w-16 lg:h-16 rounded-full">
+            <span>S</span>
           </div>
         </div>
       </div>
-      
-    </main>
-  </body>
-  <%- include('partials/footer.ejs'); -%>
+
+      <!-- Boxes -->
+
+      <div class="flex flex-col xl:flex-row flex-grow mt-8">
+        <!-- Diet Box -->
+
+        <div id="diet swup" class="transition-fade card rounded-lg shadow-md p-8 w-full h-full xl:mr-4">
+          <div class="flex justify-between items-baseline">
+            <h1 class="text-4xl p-color font-bold">Food Items</h1>
+            <div class="flex items-end p-color text-xl font-bold">
+              Everyday
+              <div class="relative flex items-center inline-block h-5 w-5 ml-4 rounded cborder">
+                <input type="checkbox" name="" id="" class="opacity-0 absolute w-full h-full" />
+                <svg class="tick absolute h-4 w-4 pointer-events-none" width="20" height="20" viewBox="0 0 24 24"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- select -->
+          <div class="flex items-center text-xl mt-8">
+            <select name="timeofday"
+              class="pl-4 pr-12 py-4 font-semibold focus:outline-none rounded-md appearance-none p-color"
+              id="timeofday">
+              <option value="breakfast">Breakfast</option>
+              <option value="lunch">Lunch</option>
+              <option value="snacks">Snacks</option>
+              <option value="dinner">Dinner</option>
+            </select>
+
+            <svg id="select" class="p-color pointer-events-none -ml-10" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+
+          <!-- Food List -->
+
+          <ul id="diet-list" class="p-color text-2xl font-semibold mt-8 pl-6">
+            <li>
+              <div class="flex w-full pb-2">
+                <input class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none" placeholder="Add food item"
+                  type="text" maxlength="25" />
+                <input class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right" placeholder="KCAL"
+                  type="text" maxlength="4" />
+              </div>
+            </li>
+
+            <li>
+              <div class="flex w-full py-2">
+                <input class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none" placeholder="Add food item"
+                  type="text" maxlength="25" />
+                <input class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right" placeholder="KCAL"
+                  type="text" maxlength="4" />
+              </div>
+            </li>
+
+            <li>
+              <div class="flex w-full py-2">
+                <input class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none" placeholder="Add food item"
+                  type="text" maxlength="25" />
+                <input class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right" placeholder="KCAL"
+                  type="text" maxlength="4" />
+              </div>
+            </li>
+
+            <li>
+              <div class="flex w-full py-2">
+                <input class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none" placeholder="Add food item"
+                  type="text" maxlength="25" />
+                <input class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right" placeholder="KCAL"
+                  type="text" maxlength="4" />
+              </div>
+            </li>
+
+            <li>
+              <div class="flex w-full py-2">
+                <input class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none" placeholder="Add food item"
+                  type="text" maxlength="25" />
+                <input class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right" placeholder="KCAL"
+                  type="text" maxlength="4" />
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Workout Box -->
+
+        <div id="workout swup" class="transition-fade card rounded-lg shadow-md p-8 w-full h-full mt-8 xl:mt-0 xl:ml-4">
+          <div class="flex justify-between items-baseline">
+            <h1 class="text-4xl p-color font-bold">Exercises</h1>
+            <div class="flex items-end p-color text-xl font-bold">
+              Everyday
+              <div class="relative flex items-center inline-block h-5 w-5 ml-4 rounded cborder">
+                <input type="checkbox" name="" id="" class="opacity-0 absolute w-full h-full" />
+                <svg class="tick absolute h-4 w-4 pointer-events-none" width="20" height="20" viewBox="0 0 24 24"
+                  fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- select -->
+          <div class="flex items-center text-xl mt-8">
+            <select name="timeofday"
+              class="pl-4 pr-12 py-4 font-semibold focus:outline-none rounded-md appearance-none p-color"
+              id="timeofday">
+              <option value="morning">Morning</option>
+              <option value="afternoon">Afternoon</option>
+              <option value="evening">Evening</option>
+            </select>
+
+            <svg id="select" class="p-color pointer-events-none -ml-10" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+
+          <!-- Exercise List -->
+
+          <ul id="exercise-list" class="p-color text-2xl font-semibold mt-8 pl-6">
+            <li>
+              <div class="flex w-full pb-2">
+                <input class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none" placeholder="Exercise"
+                  type="text" maxlength="25" />
+                <input class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right" placeholder="KCAL"
+                  type="text" maxlength="4" />
+              </div>
+            </li>
+
+            <li>
+              <div class="flex w-full py-2">
+                <input class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none" placeholder="Exercise"
+                  type="text" maxlength="25" />
+                <input class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right" placeholder="KCAL"
+                  type="text" maxlength="4" />
+              </div>
+            </li>
+
+            <li>
+              <div class="flex w-full py-2">
+                <input class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none" placeholder="Exercise"
+                  type="text" maxlength="25" />
+                <input class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right" placeholder="KCAL"
+                  type="text" maxlength="4" />
+              </div>
+            </li>
+
+            <li>
+              <div class="flex w-full py-2">
+                <input class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none" placeholder="Exercise"
+                  type="text" maxlength="25" />
+                <input class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right" placeholder="KCAL"
+                  type="text" maxlength="4" />
+              </div>
+            </li>
+
+            <li>
+              <div class="flex w-full py-2">
+                <input class="p-2 w-5/6 p-color text-2xl font-semibold focus:outline-none" placeholder="Exercise"
+                  type="text" maxlength="25" />
+                <input class="p-2 w-1/6 p-color text-2xl font-semibold focus:outline-none text-right" placeholder="KCAL"
+                  type="text" maxlength="4" />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</body>
+<%- include('partials/footer.ejs'); -%>

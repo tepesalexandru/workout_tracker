@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
 :root {
-    --p-color: #3F75FF;
-    --s-color: #3FA3FF;
+    --p-color: #FF5F6D;
+    --s-color: #fc8d96;
     --c-color: #FFFFFF;
-    --b-color: #cbe5ff;
+    --b-color: #ffced2;
 }
 
 * {
     scrollbar-color: transparent !important;
     scrollbar-width: 0 !important;
+    box-sizing: border-box;
 }
 
 body {
@@ -80,7 +81,19 @@ input[type=number] {
 }
 
 #side-bar {
-    background: linear-gradient(180deg, var(--p-color), var(--s-color)) !important;
+    background: linear-gradient(90deg, var(--p-color), var(--s-color), var(--p-color)) !important;
+    background-size: 400% !important;
+    animation: animate 15s alternate infinite !important;
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 400%;
+    }
 }
 
 #avatar {
@@ -95,6 +108,26 @@ input[type=number] {
 
 .cborder {
     border: 2px solid var(--p-color);
+}
+
+.input-border {
+    background: var(--b-color);
+    border-bottom: 2px solid var(--b-color);
+    transition: all 300ms ease;
+}
+
+.overlayCard {
+    background: linear-gradient(45deg, var(--p-color), var(--s-color)) !important;
+
+}
+
+.button {
+    background: linear-gradient(45deg, var(--p-color), var(--s-color)) !important;
+    transition: all 300ms ease;
+}
+
+.input-border:focus {
+    border-bottom: 2px solid var(--p-color);
 }
 
 .tick {

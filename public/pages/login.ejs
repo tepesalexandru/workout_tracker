@@ -1,59 +1,442 @@
 <%- include('partials/header.ejs'); -%>
-  <body class="w-full min-h-screen flex justify-center items-center bg-red-500">
-    <main class="">
-      <% if (message) { %> <%= message %> <% } %>
-      <form
-        id="login"
-        class="flex flex-col bg-teal-500 p-8"
-        action="/login"
-        method="POST"
+<body class="w-full min-h-screen flex justify-center items-center">
+  <main class="relative overflow-hidden flex card rounded-lg">
+    <!-- Login Form -->
+    <form
+      id="login"
+      class="transform flex flex-col justify-center py-8 px-12 p-color"
+      action="/login"
+      method="POST"
+    >
+      <h1 class="text-4xl text-center font-bold mb-8">Welcome</h1>
+
+      <label for="email" class="text-sm font-bold uppercase mb-2"
+        >Email</label
       >
-        <h1 class="text-2xl font-bold font-sans">Login Here</h1>
+      <input
+        type="email"
+        name="l-email"
+        id="l-email"
+        class="text-lg font-bold p-2 input-border focus:outline-none w-64 mb-4"
+        requicurrentColor
+      />
+      <label for="password" class="text-sm font-bold uppercase mb-2"
+        >password</label
+      >
+      <input
+        type="password"
+        name="password"
+        minlength="8"
+        maxlength="16"
+        id="l-password"
+        class="text-lg font-bold p-2 input-border focus:outline-none w-64"
+        requicurrentColor
+      />
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" />
-        <br />
-        <label for="password">password</label>
-        <input
-          type="password"
-          name="password"
-          minlength="8"
-          maxlength="16"
-          id="password"
-        />
-        <br />
-        <input type="submit" value="Log In" />
-      </form>
+      <p
+        class="opacity-0 flex items-center py-2 text-xs font-bold text-red-600"
+      >
+        <span>
+          <svg
+            class="h-3 w-3 mr-1"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13 16H12V12H11M12 8H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+        Invalid Password/Email
+      </p>
+      <input
+        type="submit"
+        value="Log In"
+        class="py-4 w-full rounded-lg button text-white text-lg focus:outline-none transform focus:scale-95"
+      />
+    </form>
 
-      <div id="register">
-        <form
-          id="register"
-          class="flex flex-col mt-16 bg-indigo-500 p-8"
-          method="POST"
-          action="/register"
+    <!-- Register Form -->
+
+    <form
+      id="register"
+      class="transform flex flex-col justify-center py-8 px-12 p-color"
+      method="POST"
+      action="/register"
+    >
+      <h1 class="text-4xl text-center font-bold mb-8">Register</h1>
+
+      <label for="username" class="text-sm font-bold uppercase mb-2"
+        >name</label
+      >
+      <input
+        type="text"
+        name="r_username"
+        maxlength="8"
+        id="r-username"
+        class="text-lg font-bold p-2 input-border focus:outline-none w-64 mb-4"
+        requicurrentColor
+      />
+      <label for="email" class="text-sm font-bold uppercase mb-2"
+        >Email</label
+      >
+      <input
+        type="email"
+        name="r_email"
+        id="r-email"
+        class="text-lg font-bold p-2 input-border focus:outline-none w-64 mb-4"
+        requicurrentColor
+      />
+      <label for="password" class="text-sm font-bold uppercase mb-2"
+        >password</label
+      >
+      <input
+        type="password"
+        name="r_password"
+        minlength="8"
+        maxlength="16"
+        id="r-password"
+        class="text-lg font-bold p-2 input-border focus:outline-none w-64 mb-6"
+        requicurrentColor
+      />
+      <input
+        type="submit"
+        value="Register"
+        id="r-submit"
+        class="py-4 w-full rounded-lg button text-white text-lg focus:outline-none transform focus:scale-95"
+      />
+    </form>
+
+    <!-- Overlay -->
+
+    <div
+      class="transition duration-300 overlayCard absolute top-0 bottom-0 h-full w-1/2"
+    >
+      <!-- Login Overlay -->
+
+      <div
+        id="loginOverlay"
+        class="transform absolute w-full h-full py-8 px-12"
+      >
+        <svg
+          class="h-64 w-full s-color"
+          id="loginSvg"
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          width="1075.51587"
+          height="646.89913"
+          viewBox="0 0 1075.51587 646.89913"
         >
-          <h1 class="text-2xl font-bold font-mono">Register Here</h1>
-
-          <label for="email">Email</label>
-          <input type="email" name="email" id="email" />
-          <br />
-          <label for="name">Username</label>
-          <input type="text" name="name" maxlength="8" id="name" />
-          <br />
-          <label for="password">password</label>
-          <input
-            type="password"
-            name="password"
-            minlength="8"
-            maxlength="16"
-            id="password"
+          <title>sign_in</title>
+          <path
+            d="M136.59282,733.55706l63.43134-91.13824L136.56059,743.4707l-.037,10.3692q-6.78516-.05706-13.43322-.44141c-.02019-2.35442,5.37117-131.89917,5.142-134.24281.3129-.0888.48846-12.252.6126-12.78462L62.57779,506.77732,128.91613,596.945l.1978,2.66552,3.93549-100.64793L76.0857,395.895,133.5,481.27779c.02132-1.3695,2.71745-208.02265,2.744-209.29776.01628.67732,1.25371,164.45521,1.26281,165.14538l54.47905-65.92288-54.53131,80.08836-.27852,90.07922,50.556-87.10756C124.63867,581.2954,138.60155,536.8418,136.99011,604.702l73.43568-121.29149L136.92724,622.17566Z"
+            transform="translate(-62.24207 -126.55043)"
+            fill="#d0cde1"
           />
-          <br />
-          <input type="submit" value="Register" id="r-submit" />
-          <br />
-        </form>
+          <path
+            d="M1106.98992,745.9302l26.4334-37.97954-26.44683,42.1108-.0154,4.3211q-2.82754-.02378-5.598-.18395c-.00841-.98114,2.2383-54.96562,2.14282-55.94228.13039-.037.20355-5.10569.25528-5.32766L1076.146,651.42551l27.64482,37.57509.08242,1.11079,1.64-41.94247-23.73818-42.95081,23.92592,35.58112c.00889-.57071,1.13243-86.68815,1.14349-87.21952.00678.28226.52245,68.53253.52625,68.82014l22.70275-27.47169L1107.349,628.303l-.11607,37.53823,21.06792-36.29986c-26.29252,52.9377-20.47384,34.4128-21.14537,62.69183l30.60245-50.54515-30.62865,57.82684Z"
+            transform="translate(-62.24207 -126.55043)"
+            fill="#d0cde1"
+          />
+          <ellipse cx="536" cy="625.89913" rx="536" ry="21" fill="#d0cde1" />
+          <rect
+            x="184"
+            y="248.03055"
+            width="612"
+            height="364.87"
+            fill="#3f3d56"
+          />
+          <path
+            d="M397.70209,374.581a146.35424,146.35424,0,0,1-146.32,143.97c-1.72,0-3.43-.03-5.14-.09V374.581Z"
+            transform="translate(-62.24207 -126.55043)"
+            fill=""
+          />
+          <path
+            d="M582.17908,739.45064H523.9723a31.00847,31.00847,0,0,1,58.20678,0Z"
+            transform="translate(-62.24207 -126.55043)"
+            fill=""
+          />
+          <path
+            d="M858.24207,550.72094v122.9a61.52336,61.52336,0,0,1,0-122.9Z"
+            transform="translate(-62.24207 -126.55043)"
+            fill=""
+          />
+          <rect
+            x="279.45927"
+            y="380.6149"
+            width="422.14211"
+            height="36.06239"
+            rx="18.03118"
+            fill="#fff"
+          />
+          <rect
+            x="279.45927"
+            y="451.67903"
+            width="422.14211"
+            height="36.06239"
+            rx="18.03118"
+            fill="#fff"
+          />
+          <rect
+            x="553.59711"
+            y="522.74315"
+            width="148.00427"
+            height="36.06239"
+            rx="18.03118"
+            fill="#fff"
+          />
+          <path
+            d="M955.29387,238.67007s16.82875,6.54451,17.76368,28.04791-4.67465,81.33893-4.67465,81.33893,20.56846,29.91777,4.67465,38.33214-17.76368-33.65749-17.76368-33.65749l-18.6986-88.81837S947.81443,237.73514,955.29387,238.67007Z"
+            transform="translate(-62.24207 -126.55043)"
+            fill="#a0616a"
+          />
+          <path
+            d="M783.26671,307.85491s-40.202,26.178-42.07187,5.60958S753.34894,212.492,753.34894,212.492s1.86986-34.59242,21.50339-26.178-5.60958,37.39721-5.60958,37.39721l2.80479,65.44511,18.69861-.93493Z"
+            transform="translate(-62.24207 -126.55043)"
+            fill="#a0616a"
+          />
+          <path
+            d="M847.77689,332.1631s-123.41079-45.81159-116.86628,7.47944,38.33214,120.606,38.33214,120.606l11.21917,17.76368h23.37325L788.87629,381.7144s53.291,29.91777,69.18484,25.24312c0,0,20.56846,137.43475,28.04791,147.719s20.56846,134.63,20.56846,134.63l12.15409,14.95888h23.37326V493.906s40.202-130.89023,9.3493-137.43475S847.77689,332.1631,847.77689,332.1631Z"
+            transform="translate(-62.24207 -126.55043)"
+            fill="#2f2e41"
+          />
+          <path
+            d="M777.65712,465.85812s-5.60958-10.28423-14.95888,0-31.78763,22.43833-31.78763,22.43833-48.61637,11.21916-9.3493,20.56847,43.94172,0,43.94172,0,6.54451,1.86986,12.15409,3.73972S819.729,507.93,819.729,502.3204s-12.37851-39.134-17.40842-34.05842S777.65712,465.85812,777.65712,465.85812Z"
+            transform="translate(-62.24207 -126.55043)"
+            fill="#2f2e41"
+          />
+          <path
+            d="M920.6231,695.01108s-13.7851-11.35244-17.02865-8.10888-20.2722,25.13753-20.2722,25.13753-45.40973,34.86818-4.05444,40.5444,38.92263-9.73066,38.92263-9.73066h12.9742c1.62178,0,23.51576-9.73066,22.70487-13.7851s-10.54155-37.11568-13.7851-34.7756S920.6231,695.01108,920.6231,695.01108Z"
+            transform="translate(-62.24207 -126.55043)"
+            fill="#2f2e41"
+          />
+          <circle cx="733.17873" cy="44.80466" r="31.78763" fill="#a0616a" />
+          <path
+            d="M817.85913,167.61537s24.30818,20.56847,41.13693,20.56847S834.68787,226.516,834.68787,226.516l-36.46228-32.72256Z"
+            transform="translate(-62.24207 -126.55043)"
+            fill="#a0616a"
+          />
+          <path
+            d="M827.20843,226.516l-.728-7.36568s18.4917-32.83632,24.10129-35.64112,9.3493-2.80479,9.3493-2.80479,18.6986-19.63353,39.26707-9.3493,69.18484,75.72935,69.18484,75.72935-34.59242,2.80479-29.91777,29.91777c0,0,34.59242,88.81838,25.24312,89.75331s-37.39721-5.60959-66.38,7.47944-42.07186,4.67465-42.07186,4.67465l-14.95889-48.61637s-28.04791-15.89382-27.113-29.91777L772.515,318.60661l3.73972-34.59242,24.77565-28.51537S796.35573,251.75909,827.20843,226.516Z"
+            transform="translate(-62.24207 -126.55043)"
+            fill="#575a89"
+          />
+          <path
+            d="M766.18031,174.79171a11.73657,11.73657,0,0,1-4.616,3.14369c-1.81051.51062-4.09154-.11555-4.81307-1.85281l1.34411-1.74939-4.02944-2.5039,1.75581-2.06012-3.24556-3.5243,2.56163-2.03236-4.87719-3.48808c6.32111-10.31466,13.15729-20.75845,23.13705-27.59607s23.9246-9.26726,34.14813-2.7998c5.30792,3.35782,9.06128,8.68723,12.06785,14.20172,6.04656,11.09024,11.37634,21.9007,12.16329,34.50764-3.79816-3.69869-9.34319-5.783-13.14136-9.48173a28.463,28.463,0,0,0-5.66925-4.64065c-3.97269-2.24026-8.726-2.43845-13.17348-3.449-3.73952-.84974-6.16609-2.53534-8.99529-4.94505-3.36564-2.8666-3.50275-1.7582-6.90135,1.46926Q775.04391,166.39718,766.18031,174.79171Z"
+            transform="translate(-62.24207 -126.55043)"
+            fill="#2f2e41"
+          />
+        </svg>
+        <p class="mt-4 mb-4 text-white text-center">
+          Already Have an Account?
+        </p>
+        <button
+          onclick="loginAction()"
+          class="py-4 px-8 w-full rounded-lg border-2 border-white text-white text-lg focus:outline-none transform hover:scale-95 transition duration-300"
+        >
+          Login
+        </button>
       </div>
-    </main>
-    <script src="/public/pages/scripts/register.js"></script>
-  </body>
+
+      <!-- Register Overlay-->
+
+      <div
+        id="registerOverlay"
+        class="transform opacity-0 pointer-events-none absolute w-full h-full  py-8 px-12"
+      >
+        <svg
+          class="h-64 w-full"
+          id="registerSvg"
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          width="1012.29306"
+          height="636.61261"
+          viewBox="0 0 1012.29306 636.61261"
+        >
+          <title>fill_forms</title>
+          <path
+            d="M472.64653,398.128s83,4,88,33-97,3-97,3Z"
+            transform="translate(-93.85347 -131.6937)"
+            fill="#a0616a"
+          />
+          <path
+            d="M341.64653,306.128s14,4,25,28,33,46,33,46l89,17-15,45-85-11-53-30Z"
+            transform="translate(-93.85347 -131.6937)"
+            fill="#575a89"
+          />
+          <path
+            d="M341.64653,306.128s14,4,25,28,33,46,33,46l89,17-15,45-85-11-53-30Z"
+            transform="translate(-93.85347 -131.6937)"
+            opacity="0.1"
+          />
+          <rect
+            x="824.29306"
+            y="92.93432"
+            width="105"
+            height="2"
+            fill="#3f3d56"
+          />
+          <rect
+            x="409.29306"
+            y="92.93432"
+            width="333"
+            height="2"
+            fill="#3f3d56"
+          />
+          <rect
+            x="30.29306"
+            y="333.93432"
+            width="789"
+            height="301"
+            fill="#3f3d56"
+          />
+          <polygon
+            points="115.793 128.434 124.793 185.434 186.793 188.434 179.793 104.434 115.793 128.434"
+            fill="#a0616a"
+          />
+          <path
+            d="M144.14653,640.628l-3,126h94l14-50,11,50h98s2-144-9-145S144.14653,640.628,144.14653,640.628Z"
+            transform="translate(-93.85347 -131.6937)"
+            fill="#2f2e41"
+          />
+          <circle cx="135.79306" cy="89.43432" r="54" fill="#a0616a" />
+          <path
+            d="M138.64653,646.128l28-138-37-183,85.21434-31.97582,41.78566-5.02418,21.00654-3.92147,14.99346,3.92147s60,15,63,26-12,101-12,101l-14,74,31,133s-129,44-220,24Z"
+            transform="translate(-93.85347 -131.6937)"
+            fill="#575a89"
+          />
+          <polygon
+            points="82.293 243.934 82.293 280.934 200.285 281.095 88.293 268.934 82.293 243.934"
+            opacity="0.1"
+          />
+          <polygon
+            points="72.159 346.12 220.293 324.934 72.159 366.89 72.159 346.12"
+            opacity="0.1"
+          />
+          <polygon
+            points="307.293 248.934 291.412 306.159 318.293 250.822 307.293 248.934"
+            opacity="0.1"
+          />
+          <path
+            d="M274.08747,166.97162l9.93007-3.97545s-20.76282-22.85871-49.65048-20.8709l8.12483-8.94481s-19.86015-7.95077-37.9148,12.92013c-9.491,10.97136-20.47216,23.86767-27.31776,38.39517H166.62491l4.4384,9.77288-15.53444,9.77288,15.94458-1.75541a54.612,54.612,0,0,0-.43268,16.21013,20.97371,20.97371,0,0,0,7.68035,13.72061h0s12.3151-25.49107,12.3151-29.46652v9.93858s9.93007-8.94467,9.93007-14.90777l5.41635,6.957,2.70817-10.93248,33.40108,10.93248-5.41635-8.94468,20.76283,2.98155-8.12483-10.93248s23.471,12.92013,24.37393,23.85261c.90262,10.93232,7.77269,21.29141,7.77269,21.29141S300.26671,181.8794,274.08747,166.97162Z"
+            transform="translate(-93.85347 -131.6937)"
+            fill="#2f2e41"
+          />
+          <rect
+            x="233.29306"
+            y="234.93432"
+            width="384"
+            height="401"
+            fill="#d0cde1"
+          />
+          <rect x="273.29306" y="322.93432" width="284" height="40" fill="" />
+          <rect
+            x="322.11632"
+            y="428.93432"
+            width="185.99441"
+            height="20"
+            fill=""
+          />
+          <rect
+            x="322.47538"
+            y="463.93432"
+            width="185.99441"
+            height="20"
+            fill=""
+          />
+          <rect
+            x="322.83445"
+            y="498.93432"
+            width="92.9972"
+            height="20"
+            fill=""
+          />
+          <rect x="519.29306" y="599.93432" width="43" height="20" fill="" />
+          <path
+            d="M299.64653,417.128s87-13,100,6-92,29-92,29Z"
+            transform="translate(-93.85347 -131.6937)"
+            fill="#a0616a"
+          />
+          <path
+            d="M139.64653,324.128h-6.26587a10.21521,10.21521,0,0,0-6.9558,2.707c-5.94794,5.52277-18.52459,19.7749-23.77833,45.293-7,34-19,100,8,105s204-19,204-19l-13-46-128,1s2-22-2-36S139.64653,324.128,139.64653,324.128Z"
+            transform="translate(-93.85347 -131.6937)"
+            fill="#575a89"
+          />
+          <circle cx="409.29306" cy="93.93432" r="41" fill="#d0cde1" />
+          <circle cx="596.29306" cy="93.93432" r="41" fill="#3f3d56" />
+          <path
+            d="M877.14653,267.628a42,42,0,1,1,42-42A42.0475,42.0475,0,0,1,877.14653,267.628Zm0-82a40,40,0,1,0,40,40A40.04551,40.04551,0,0,0,877.14653,185.628Z"
+            transform="translate(-93.85347 -131.6937)"
+            fill="#3f3d56"
+          />
+          <path
+            d="M1064.14653,267.628a42,42,0,1,1,42-42A42.0475,42.0475,0,0,1,1064.14653,267.628Zm0-82a40,40,0,1,0,40,40A40.04551,40.04551,0,0,0,1064.14653,185.628Z"
+            transform="translate(-93.85347 -131.6937)"
+            fill="#3f3d56"
+          />
+          <polygon
+            points="403.641 111.377 385.873 87.688 392.273 82.887 404.506 99.197 460.745 42.959 466.401 48.615 403.641 111.377"
+            fill="#3f3d56"
+          />
+          <rect
+            x="16.49572"
+            y="633.8306"
+            width="816.59467"
+            height="2.78201"
+            fill="#3f3d56"
+          />
+        </svg>
+        <p class="mt-4 mb-4 text-white text-center">
+          Don't Have an Account?
+        </p>
+        <button
+          onclick="registerAction()"
+          class="py-4 w-full rounded-lg border-2 border-white text-white text-lg focus:outline-none transform hover:scale-95 transition duration-300"
+        >
+          Register
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    var overlay = document.querySelector(".overlayCard");
+    var login = document.querySelector("#loginOverlay");
+    var register = document.querySelector("#registerOverlay");
+    var loginForm = document.querySelector("#login");
+    var registerForm = document.querySelector("#register");
+
+    function loginAction() {
+      overlay.classList.add("right-0");
+      overlay.classList.remove("left-0");
+      login.classList.add("opacity-0");
+      login.classList.remove("opacity-100");
+      login.classList.add("pointer-events-none");
+      register.classList.add("opacity-100");
+      register.classList.remove("pointer-events-none");
+      registerForm.classList.add("pointer-events-none");
+      loginForm.classList.remove("pointer-events-none");
+    }
+
+    function registerAction() {
+      overlay.classList.add("left-0");
+      overlay.classList.remove("right-0");
+      register.classList.add("opacity-0");
+      register.classList.remove("opacity-100");
+      register.classList.add("pointer-events-none");
+      login.classList.add("opacity-100");
+      login.classList.remove("pointer-events-none");
+      loginForm.classList.add("pointer-events-none");
+      registerForm.classList.remove("pointer-events-none");
+    }
+  </script>
+  <script src="/public/pages/scripts/register.js"></script>
+</body>
 </html>

@@ -1,6 +1,7 @@
 <%- include('partials/header.ejs'); -%>
 
 <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
   <main class="flex w-full h-screen appearance-none">
     <!-- Side Bar -->
     <%- include('partials/avatar.ejs'); -%>
@@ -13,7 +14,7 @@
               d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-          <span class="ml-2">Home</span>
+          <span class="focus:outline-none ml-2">Home</span>
         </a>
   
         <a href="/goals" class="my-8 flex">
@@ -22,7 +23,7 @@
               d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-          <span class="ml-2">Goals</span>
+          <span class="focus:outline-none ml-2">Goals</span>
         </a>
   
         <a href="/stats" class="flex text-white">
@@ -33,7 +34,7 @@
             <path d="M20.4878 9H15V3.5123C17.5572 4.41613 19.5839 6.44285 20.4878 9Z" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-          <span class="ml-2">Stats</span>
+          <span class="focus:outline-none ml-2">Stats</span>
         </a>
       </ul>
     </nav>
@@ -41,20 +42,52 @@
     <a href="/login" class="b-color">Sign Out</a>
   </div>
     <!-- main -->
-    <div id="swup" class="transition-fade p-8 w-full">
+    <div id="swup" class="flex flex-col transition-fade p-8 w-full ovweflow-y-scroll">
       <header class="flex justify-between items-baseline w-full">
-        <h1 class="text-5xl p-color font-bold">Good Morning!</h1>
-        <div class="flex items-baseline p-color text-xl font-bold">
-          Water Reminder
-          <div class="ml-2 h-4 w-4 border-2 rounded border-blue-500"></div>
+        <h1 id="contextual-messages" class="text-5xl p-color font-bold">
+          Your Stats
+        </h1>
+        <div class="flex items-center text-right p-color text-xl font-bold">
+          BMI : <div class="ml-2 p-2 rounded pill text-base font-base">20.07</div>
         </div>
       </header>
 
-      <!-- Calendar -->
+      <!-- Chart -->
 
-      <div id="calendar" class="card"></div>
-    </div>
+      <div id="chart" class="flex-grow card p-8 rounded-lg shadow-md mt-8 w-full">
+          <canvas id="myChart" width="50" height="20"></canvas>
+      </div>
 
+
+      <script>
+          var ctx = document.getElementById('myChart').getContext('2d');
+          var myChart = new Chart(ctx, {
+              type: 'line',
+              data: {
+                  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                  datasets: [{
+                      label: 'Weight',
+                      data: [30, 65, 42, 68, 70, 76, 48, 65, 82, 70, 60, 32],
+                      backgroundColor: [
+                          'rgba(0,0,255,0.1)'
+                      ],
+                      borderColor: [
+                          '#2074f3',
+                      ],
+                      borderWidth: 3
+                  }]
+              },
+              options: {
+                  scales: {
+                      yAxes: [{
+                          ticks: {
+                              beginAtZero: true
+                          }
+                      }]
+                  }
+              }
+          });
+          </script>
   </main>
 </body>
 <%- include('partials/footer.ejs'); -%>

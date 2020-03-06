@@ -1,10 +1,10 @@
 <%- include('partials/header.ejs'); -%>
 <body class="w-full min-h-screen flex justify-center items-center">
-  <main class="relative overflow-hidden flex card rounded-lg">
+  <main class="relative overflow-hidden flex card rounded-lg shadow-md">
     <!-- Login Form -->
     <form
       id="login"
-      class="transform flex flex-col justify-center py-8 px-12 p-color"
+      class="transform disappear flex flex-col justify-center py-12 px-16 p-color"
       action="/login"
       method="POST"
     >
@@ -17,7 +17,7 @@
         type="email"
         name="l-email"
         id="l-email"
-        class="text-lg font-bold p-2 input-border focus:outline-none w-64 mb-4"
+        class="text-xl font-bold p-2 input-border focus:outline-none w-64 mb-4"
         requicurrentColor
       />
       <label for="password" class="text-sm font-bold uppercase mb-2"
@@ -29,7 +29,7 @@
         minlength="8"
         maxlength="16"
         id="l-password"
-        class="text-lg font-bold p-2 input-border focus:outline-none w-64"
+        class="text-xl font-bold p-2 input-border focus:outline-none w-64"
         requicurrentColor
       />
 
@@ -59,7 +59,7 @@
       <input
         type="submit"
         value="Log In"
-        class="py-4 w-full rounded-lg button text-white text-lg focus:outline-none transform focus:scale-95"
+        class="py-4 w-full rounded-lg button text-white text-xl focus:outline-none transform focus:scale-95"
       />
     </form>
 
@@ -67,7 +67,7 @@
 
     <form
       id="register"
-      class="transform flex flex-col justify-center py-8 px-12 p-color"
+      class="transform flex flex-col justify-center py-12 px-16 p-color"
       method="POST"
       action="/register"
     >
@@ -81,7 +81,7 @@
         name="r_username"
         maxlength="8"
         id="r-username"
-        class="text-lg font-bold p-2 input-border focus:outline-none w-64 mb-4"
+        class="text-xl font-bold p-2 input-border focus:outline-none w-64 mb-4"
         requicurrentColor
       />
       <label for="email" class="text-sm font-bold uppercase mb-2"
@@ -91,7 +91,7 @@
         type="email"
         name="r_email"
         id="r-email"
-        class="text-lg font-bold p-2 input-border focus:outline-none w-64 mb-4"
+        class="text-xl font-bold p-2 input-border focus:outline-none w-64 mb-4"
         requicurrentColor
       />
       <label for="password" class="text-sm font-bold uppercase mb-2"
@@ -103,14 +103,14 @@
         minlength="8"
         maxlength="16"
         id="r-password"
-        class="text-lg font-bold p-2 input-border focus:outline-none w-64 mb-6"
+        class="text-xl font-bold p-2 input-border focus:outline-none w-64 mb-6"
         requicurrentColor
       />
       <input
         type="submit"
         value="Register"
         id="r-submit"
-        class="py-4 w-full rounded-lg button text-white text-lg focus:outline-none transform focus:scale-95"
+        class="py-4 w-full rounded-lg button text-white text-xl focus:outline-none transform focus:scale-95"
       />
     </form>
 
@@ -123,7 +123,7 @@
 
       <div
         id="loginOverlay"
-        class="transform absolute w-full h-full py-8 px-12"
+        class="transform absolute w-full h-full py-12 px-16"
       >
         <svg
           class="h-64 w-full s-color"
@@ -239,7 +239,7 @@
         </p>
         <button
           onclick="loginAction()"
-          class="py-4 px-8 w-full rounded-lg border-2 border-white text-white text-lg focus:outline-none transform hover:scale-95 transition duration-300"
+          class="py-4 px-8 w-full rounded-lg border-2 border-white text-white text-xl focus:outline-none transform hover:scale-95 transition duration-300"
         >
           Login
         </button>
@@ -249,7 +249,7 @@
 
       <div
         id="registerOverlay"
-        class="transform opacity-0 pointer-events-none absolute w-full h-full  py-8 px-12"
+        class="transform opacity-0 pointer-events-none absolute w-full h-full py-12 px-16"
       >
         <svg
           class="h-64 w-full"
@@ -398,7 +398,7 @@
         </p>
         <button
           onclick="registerAction()"
-          class="py-4 w-full rounded-lg border-2 border-white text-white text-lg focus:outline-none transform hover:scale-95 transition duration-300"
+          class="py-4 w-full rounded-lg border-2 border-white text-white text-xl focus:outline-none transform hover:scale-95 transition duration-300"
         >
           Register
         </button>
@@ -414,27 +414,27 @@
     var registerForm = document.querySelector("#register");
 
     function loginAction() {
-      overlay.classList.add("right-0");
-      overlay.classList.remove("left-0");
-      login.classList.add("opacity-0");
-      login.classList.remove("opacity-100");
+      overlay.classList.add("right");
+      overlay.classList.remove("left");
+      login.classList.add("disappear");
+      login.classList.remove("appear");
       login.classList.add("pointer-events-none");
-      register.classList.add("opacity-100");
-      register.classList.remove("pointer-events-none");
-      registerForm.classList.add("pointer-events-none");
-      loginForm.classList.remove("pointer-events-none");
+      register.classList.add("appear");
+      register.classList.remove("disappear-alt");
+      registerForm.classList.add("disappear-alt");
+      loginForm.classList.remove("disappear");
     }
 
     function registerAction() {
-      overlay.classList.add("left-0");
-      overlay.classList.remove("right-0");
-      register.classList.add("opacity-0");
-      register.classList.remove("opacity-100");
-      register.classList.add("pointer-events-none");
-      login.classList.add("opacity-100");
-      login.classList.remove("pointer-events-none");
-      loginForm.classList.add("pointer-events-none");
-      registerForm.classList.remove("pointer-events-none");
+      overlay.classList.add("left");
+      overlay.classList.remove("right");
+      register.classList.add("disappear");
+      register.classList.remove("appear");
+      register.classList.add("disappear-alt");
+      login.classList.add("appear");
+      login.classList.remove("disappear");
+      loginForm.classList.add("disappear");
+      registerForm.classList.remove("disappear-alt");
     }
   </script>
   <script src="/public/pages/scripts/register.js"></script>
